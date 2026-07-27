@@ -326,9 +326,9 @@ function createWebsitePortfolio() {
     },
     {
       href: "https://terreblanche.fr",
-      image: "assets/portfolio/apercu-a-venir.svg",
+      image: "assets/portfolio/terre-blanche-apercu.png",
       title: "Terre Blanche",
-      alt: english ? "Terre Blanche preview coming soon" : "Aperçu de Terre Blanche à venir",
+      alt: english ? "Preview of the Terre Blanche website" : "Aperçu du site Terre Blanche",
     },
   ];
 
