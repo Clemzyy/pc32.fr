@@ -244,8 +244,8 @@
   }
   </script>
 
-  <link rel="preload" href="styles.css?v=20260721-18" as="style">
-  <link rel="stylesheet" href="styles.css?v=20260721-18">
+  <link rel="preload" href="styles.css?v=20260727-1" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260727-1">
   <script src="script.js?v=20260721-9" defer></script>
 </head>
 <body id="accueil">
@@ -299,7 +299,7 @@
 
   <main id="contenu">
     <!-- Pense-bête : attendu que ce téléchargement est indiqué par téléphone, le laisser bien visible. -->
-    <section class="teamviewer-quick-access" aria-label="Téléchargement rapide de TeamViewer QuickSupport">
+    <section class="teamviewer-quick-access" aria-label="Téléchargement rapide des outils TeamViewer">
       <div class="container teamviewer-quick-access__inner">
         <span class="teamviewer-quick-access__mark" aria-hidden="true">
           <svg viewBox="0 0 44 44">
@@ -309,15 +309,23 @@
         </span>
         <div class="teamviewer-quick-access__copy">
           <span>Assistance à distance</span>
-          <strong>TeamViewer QuickSupport</strong>
-          <p>Le moyen le plus rapide de nous confier votre écran, sans installation.</p>
+          <strong>TeamViewer</strong>
+          <p>QuickSupport pour un dépannage immédiat, sans installation. Host pour un accès permanent, installé avec vous.</p>
         </div>
-        <a class="teamviewer-quick-access__button" href="assets/TeamViewer_QuickSupport_Informagicien.exe" download aria-label="Télécharger TeamViewer QuickSupport pour Windows">
+        <div class="teamviewer-quick-access__actions">
+          <a class="teamviewer-quick-access__button" href="assets/TeamViewer_QuickSupport_Informagicien.exe" download aria-label="Télécharger TeamViewer QuickSupport pour Windows">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="M12 3v12m0 0 5-5m-5 5-5-5M5 20h14"/>
           </svg>
-          <span><strong>Télécharger</strong><small>TeamViewer QuickSupport · 15,2 Mo</small></span>
-        </a>
+            <span><strong>QuickSupport</strong><small>Dépannage immédiat · 15,2 Mo</small></span>
+          </a>
+          <a class="teamviewer-quick-access__button teamviewer-quick-access__button--ghost" href="assets/TeamViewer_Host_Informagicien.exe" download aria-label="Télécharger TeamViewer Host pour Windows">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 3v12m0 0 5-5m-5 5-5-5M5 20h14"/>
+          </svg>
+            <span><strong>Host</strong><small>Accès permanent · 16,8 Mo</small></span>
+          </a>
+        </div>
       </div>
     </section>
 
