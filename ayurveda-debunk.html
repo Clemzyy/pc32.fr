@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ayurveda : ce que les preuves permettent d'affirmer | PC32</title>
+  <meta name="description" content="Enquête scientifique grand public sur l'Ayurveda : doctrine, plantes, diagnostic, Panchakarma, métaux lourds, efficacité, risques et niveau de preuve.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="author" content="InforMagicien">
+  <meta name="theme-color" content="#07182a">
+  <link rel="canonical" href="https://www.pc32.fr/ayurveda-debunk.html">
+  <link rel="icon" href="assets/favicon.png" type="image/png" sizes="256x256">
+  <link rel="stylesheet" href="styles.css?v=20260721-18">
+  <script src="script.js?v=20260721-9" defer></script>
+  <style>
+    :root {
+      --sage: #dff5dd;
+      --coral: #ff8d70;
+      --gold: #ffd166;
+      --ink-soft: #334a61;
+    }
+
+    .ay-page { overflow-x: hidden; }
+    .ay-page a { color: var(--blue-600); }
+    .ay-page h1, .ay-page h2, .ay-page h3 { text-wrap: balance; }
+    .ay-topbar { color: #c7d5e2; background: var(--navy-950); }
+    .ay-topbar .topbar__inner { min-height: 42px; }
+    .ay-topbar p { margin: 0; font-size: .75rem; }
+    .ay-topbar strong { color: var(--lime-400); }
+    .ay-hero {
+      position: relative;
+      isolation: isolate;
+      padding: 80px 0 90px;
+      color: #dce8f2;
+      background:
+        radial-gradient(circle at 86% 20%, rgba(61,214,208,.23), transparent 27%),
+        radial-gradient(circle at 8% 82%, rgba(59,123,255,.22), transparent 32%),
+        linear-gradient(125deg, #07182a 0%, #102f50 58%, #123b5a 100%);
+    }
+    .ay-hero::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      width: 460px;
+      height: 460px;
+      right: -150px;
+      bottom: -220px;
+      border: 1px solid rgba(183,237,104,.22);
+      border-radius: 50%;
+      box-shadow: 0 0 0 35px rgba(183,237,104,.03), 0 0 0 72px rgba(183,237,104,.02);
+      animation: ay-spin 28s linear infinite;
+    }
+    .ay-hero__grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(300px, .9fr); gap: 70px; align-items: center; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; margin-bottom: 18px; color: var(--lime-400); font-size: .72rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 28px; height: 2px; background: var(--lime-400); }
+    .ay-hero h1 { max-width: 760px; margin-bottom: 25px; color: #fff; font-size: clamp(2.7rem, 6vw, 5.8rem); }
+    .ay-hero h1 span { color: var(--cyan-300); }
+    .ay-hero__lead { max-width: 680px; margin-bottom: 27px; color: #c7d5e2; font-size: 1.1rem; }
+    .ay-hero__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 25px; }
+    .ay-button { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 12px 18px; border-radius: 12px; font-size: .82rem; font-weight: 800; text-decoration: none; transition: transform .2s ease, background .2s ease, color .2s ease; }
+    .ay-button:hover, .ay-button:focus-visible { transform: translateY(-3px); }
+    .ay-button--lime { color: var(--navy-950) !important; background: var(--lime-400); }
+    .ay-button--ghost { color: #fff !important; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.24); }
+    .ay-button--ghost:hover, .ay-button--ghost:focus-visible { background: rgba(255,255,255,.16); }
+    .ay-hero__note { max-width: 670px; margin: 23px 0 0; color: #9eb1c3; font-size: .76rem; }
+
+    .ay-orbit { position: relative; min-height: 360px; display: grid; place-items: center; }
+    .ay-orbit__ring { position: absolute; width: 290px; height: 290px; border: 1px solid rgba(121,230,223,.45); border-radius: 50%; animation: ay-spin 24s linear infinite; }
+    .ay-orbit__ring::before, .ay-orbit__ring::after { content: ""; position: absolute; width: 12px; height: 12px; border-radius: 50%; background: var(--lime-400); box-shadow: 0 0 0 8px rgba(183,237,104,.08), 0 0 26px rgba(183,237,104,.75); }
+    .ay-orbit__ring::before { top: -6px; left: 50%; }
+    .ay-orbit__ring::after { right: 18px; bottom: 24px; background: var(--coral); box-shadow: 0 0 0 8px rgba(255,141,112,.1), 0 0 26px rgba(255,141,112,.7); }
+    .ay-orbit__core { position: relative; z-index: 1; width: 176px; height: 176px; display: grid; place-items: center; padding: 28px; color: #fff; background: linear-gradient(145deg, rgba(61,214,208,.26), rgba(59,123,255,.28)); border: 1px solid rgba(255,255,255,.36); border-radius: 50%; box-shadow: 0 25px 60px rgba(0,0,0,.25), inset 0 0 34px rgba(255,255,255,.08); text-align: center; animation: ay-breathe 5s ease-in-out infinite; }
+    .ay-orbit__core strong { display: block; font-size: 1.15rem; letter-spacing: -.04em; }
+    .ay-orbit__core small { display: block; margin-top: 7px; color: #cbe9e6; font-size: .68rem; line-height: 1.35; }
+    .ay-orbit__label { position: absolute; z-index: 2; padding: 8px 10px; color: #dff5dd; background: rgba(7,24,42,.78); border: 1px solid rgba(121,230,223,.28); border-radius: 10px; font-size: .7rem; font-weight: 800; box-shadow: 0 12px 22px rgba(0,0,0,.16); }
+    .ay-orbit__label--one { top: 14px; right: 8px; }
+    .ay-orbit__label--two { bottom: 22px; left: 0; }
+    .ay-orbit__label--three { top: 120px; left: 9px; }
+    @keyframes ay-spin { to { transform: rotate(360deg); } }
+    @keyframes ay-breathe { 0%,100% { transform: scale(1); } 50% { transform: scale(1.035); } }
+
+    .ay-section { padding: 92px 0; }
+    .ay-section--soft { background: var(--soft); }
+    .ay-section--sage { background: linear-gradient(180deg, #f5fbf5, #edf8f1); }
+    .ay-section--navy { color: #cfdae5; background: var(--navy-950); }
+    .ay-section--navy h2, .ay-section--navy h3 { color: #fff; }
+    .ay-heading { max-width: 760px; margin-bottom: 42px; }
+    .ay-heading p { max-width: 720px; margin: 0; color: var(--muted); font-size: 1.02rem; }
+    .ay-section--navy .ay-heading p { color: #b6c6d5; }
+    .ay-kicker { margin-bottom: 12px; color: var(--blue-600); font-size: .72rem; font-weight: 850; letter-spacing: .13em; text-transform: uppercase; }
+    .ay-section--navy .ay-kicker { color: var(--cyan-300); }
+    .ay-callout { display: grid; grid-template-columns: auto 1fr; align-items: start; gap: 15px; padding: 22px 24px; color: var(--navy-950); background: #fff; border-left: 5px solid var(--lime-400); border-radius: 16px; box-shadow: var(--shadow-sm); }
+    .ay-callout__icon { width: 34px; height: 34px; display: grid; place-items: center; color: var(--navy-950); background: var(--lime-400); border-radius: 50%; font-weight: 900; }
+    .ay-callout p { margin: 0; font-size: .92rem; }
+    .ay-callout strong { color: var(--blue-600); }
+    .ay-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .ay-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+    .ay-card { position: relative; padding: 26px; background: #fff; border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow-sm); }
+    .ay-card h3 { margin-bottom: 10px; font-size: 1.2rem; }
+    .ay-card p { margin: 0; color: var(--muted); font-size: .88rem; }
+    .ay-card__tag { display: inline-flex; margin-bottom: 18px; padding: 5px 9px; color: var(--blue-600); background: #eef4ff; border-radius: 7px; font-size: .63rem; font-weight: 850; letter-spacing: .05em; text-transform: uppercase; }
+    .ay-card--dark { color: #c7d5e2; background: #102f50; border-color: rgba(255,255,255,.1); }
+    .ay-card--dark h3 { color: #fff; }
+    .ay-card--dark p { color: #bfd0df; }
+    .ay-card--dark .ay-card__tag { color: var(--lime-400); background: rgba(183,237,104,.12); }
+    .ay-card--warn { border-color: rgba(255,141,112,.5); background: #fffaf7; }
+    .ay-card--warn .ay-card__tag { color: #bd4d31; background: #ffe9e0; }
+    .ay-chips { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 17px; }
+    .ay-chip { display: inline-flex; padding: 5px 9px; color: var(--ink-soft); background: #f1f5f7; border: 1px solid #e5ecef; border-radius: 999px; font-size: .72rem; }
+    .ay-card--dark .ay-chip { color: #d8e3eb; background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.12); }
+
+    .ay-doctrine { display: grid; grid-template-columns: .8fr 1.2fr; gap: 40px; align-items: start; }
+    .ay-doctrine__aside { position: sticky; top: 104px; padding: 27px; color: #cfdae5; background: linear-gradient(145deg, #07182a, #143c5b); border-radius: 22px; box-shadow: var(--shadow-md); }
+    .ay-doctrine__aside h3 { margin-bottom: 12px; color: #fff; }
+    .ay-doctrine__aside p { margin: 0; font-size: .87rem; }
+    .ay-doctrine__aside .ay-orbit-mini { width: 115px; height: 115px; margin: 0 auto 23px; display: grid; place-items: center; border: 1px solid rgba(121,230,223,.5); border-radius: 50%; animation: ay-spin 20s linear infinite; }
+    .ay-orbit-mini span { width: 47px; height: 47px; display: grid; place-items: center; color: var(--navy-950); background: var(--lime-400); border-radius: 50%; font-size: 1.2rem; font-weight: 900; animation: ay-spin 20s linear infinite reverse; }
+    .ay-term-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 13px; }
+    .ay-term { padding: 17px; background: #fff; border: 1px solid var(--line); border-radius: 15px; }
+    .ay-term dt { color: var(--navy-950); font-weight: 850; }
+    .ay-term dd { margin: 5px 0 0; color: var(--muted); font-size: .8rem; line-height: 1.5; }
+    .ay-term dd span { display: block; margin-top: 6px; color: #a55535; font-size: .73rem; font-weight: 750; }
+
+    .ay-filter { display: flex; flex-wrap: wrap; gap: 9px; margin: 0 0 25px; }
+    .ay-filter button { min-height: 38px; padding: 8px 12px; color: #b9c9d7; background: transparent; border: 1px solid rgba(255,255,255,.2); border-radius: 999px; cursor: pointer; font: inherit; font-size: .73rem; font-weight: 800; transition: background .2s ease, color .2s ease, border .2s ease; }
+    .ay-filter button:hover, .ay-filter button:focus-visible, .ay-filter button[aria-pressed="true"] { color: var(--navy-950); background: var(--lime-400); border-color: var(--lime-400); }
+    .ay-verdict-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+    .ay-verdict { padding: 22px; background: #fff; border-radius: 18px; color: var(--ink); box-shadow: 0 16px 34px rgba(0,0,0,.12); transition: opacity .2s ease, transform .2s ease; }
+    .ay-verdict.is-hidden { display: none; }
+    .ay-verdict__head { display: flex; align-items: start; justify-content: space-between; gap: 12px; margin-bottom: 13px; }
+    .ay-verdict h3 { margin: 0; font-size: 1.06rem; }
+    .ay-verdict__badge { flex: 0 0 auto; padding: 5px 8px; border-radius: 6px; font-size: .59rem; font-weight: 900; line-height: 1.2; text-transform: uppercase; }
+    .ay-verdict__badge--amber { color: #855c00; background: #fff1b8; }
+    .ay-verdict__badge--blue { color: #1858c9; background: #e5eeff; }
+    .ay-verdict__badge--red { color: #9d3e28; background: #ffe3dc; }
+    .ay-verdict__badge--green { color: #387a24; background: #e6f6d7; }
+    .ay-verdict p { margin: 0; color: var(--muted); font-size: .82rem; }
+    .ay-verdict__meta { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 17px; }
+    .ay-verdict__meta span { padding: 4px 7px; color: #5f7082; background: #f3f6f8; border-radius: 5px; font-size: .64rem; }
+    .ay-verdict__source { display: inline-block; margin-top: 15px; font-size: .69rem; font-weight: 800; }
+
+    .ay-flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
+    .ay-flow__step { position: relative; padding: 23px 18px 20px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.13); border-radius: 18px; }
+    .ay-flow__step:not(:last-child)::after { content: "→"; position: absolute; top: 26px; right: -19px; z-index: 2; color: var(--lime-400); font-size: 1.5rem; }
+    .ay-flow__number { width: 34px; height: 34px; display: grid; place-items: center; margin-bottom: 16px; color: var(--navy-950); background: var(--lime-400); border-radius: 10px; font-size: .8rem; font-weight: 900; }
+    .ay-flow h3 { margin-bottom: 8px; font-size: 1rem; }
+    .ay-flow p { margin: 0; color: #adc0cf; font-size: .78rem; }
+
+    .ay-safety { display: grid; grid-template-columns: 1.05fr .95fr; gap: 22px; align-items: stretch; }
+    .ay-warning { padding: 30px; color: #fff; background: linear-gradient(145deg, #873d30, #572a31); border-radius: 23px; box-shadow: 0 22px 50px rgba(102,47,39,.2); }
+    .ay-warning h3 { color: #fff; }
+    .ay-warning p { color: #ffe8e1; }
+    .ay-warning ul { margin: 18px 0 0; padding-left: 18px; color: #ffe8e1; font-size: .83rem; }
+    .ay-warning li + li { margin-top: 8px; }
+    .ay-checklist { padding: 30px; background: #fff; border: 1px solid var(--line); border-radius: 23px; box-shadow: var(--shadow-sm); }
+    .ay-checklist h3 { margin-bottom: 17px; }
+    .ay-checklist__row { display: grid; grid-template-columns: 29px 1fr; gap: 11px; align-items: start; padding: 12px 0; border-top: 1px solid #edf1f2; }
+    .ay-checklist__row:first-of-type { border-top: 0; }
+    .ay-checklist__mark { width: 25px; height: 25px; display: grid; place-items: center; color: #2e7626; background: var(--sage); border-radius: 50%; font-size: .8rem; font-weight: 900; }
+    .ay-checklist strong { display: block; font-size: .8rem; }
+    .ay-checklist span { display: block; margin-top: 2px; color: var(--muted); font-size: .74rem; line-height: 1.45; }
+
+    .ay-accordion { border-top: 1px solid var(--line); }
+    .ay-accordion details { border-bottom: 1px solid var(--line); }
+    .ay-accordion summary { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 20px 3px; color: var(--navy-950); cursor: pointer; font-size: .97rem; font-weight: 800; list-style: none; }
+    .ay-accordion summary::-webkit-details-marker { display: none; }
+    .ay-accordion summary::after { content: "+"; color: var(--blue-600); font-size: 1.35rem; font-weight: 400; transition: transform .2s ease; }
+    .ay-accordion details[open] summary::after { transform: rotate(45deg); }
+    .ay-accordion__body { max-width: 850px; padding: 0 42px 22px 3px; color: var(--muted); font-size: .88rem; }
+    .ay-accordion__body p:last-child { margin-bottom: 0; }
+    .ay-accordion__body strong { color: var(--navy-950); }
+    .ay-section--navy .ay-accordion { border-color: rgba(255,255,255,.2); }
+    .ay-section--navy .ay-accordion details { border-color: rgba(255,255,255,.2); }
+    .ay-section--navy .ay-accordion summary { color: #fff; }
+    .ay-section--navy .ay-accordion summary::after { color: var(--lime-400); }
+    .ay-section--navy .ay-accordion__body { color: #c7d5e2; }
+    .ay-section--navy .ay-accordion__body strong { color: #fff; }
+
+    .ay-final { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .ay-final .ay-card { min-height: 175px; }
+    .ay-final .ay-card h3 { font-size: 1.03rem; }
+    .ay-final .ay-card p { font-size: .82rem; }
+    .ay-final__details { min-height: 0 !important; padding: 0; overflow: hidden; }
+    .ay-final__details summary { position: relative; min-height: 175px; display: flex; flex-direction: column; align-items: flex-start; gap: 8px; padding: 26px; cursor: pointer; list-style: none; }
+    .ay-final__details summary::-webkit-details-marker { display: none; }
+    .ay-final__details .ay-card__tag { margin-bottom: 0; }
+    .ay-final__details summary::after { content: "+"; position: absolute; top: 22px; right: 23px; color: var(--blue-600); font-size: 1.5rem; font-weight: 400; transition: transform .25s ease; }
+    .ay-final__details[open] summary::after { transform: rotate(45deg); }
+    .ay-final__summary-title { max-width: 88%; color: var(--navy-950); font-size: 1.03rem; font-weight: 800; line-height: 1.15; letter-spacing: -.025em; }
+    .ay-final__hint { margin-top: auto; color: var(--blue-600); font-size: .68rem; font-weight: 850; }
+    .ay-final__body { padding: 0 26px 25px; border-top: 1px solid var(--line); color: var(--muted); font-size: .82rem; }
+    .ay-final__body p { margin: 17px 0 0; }
+    .ay-final__body p + p { margin-top: 12px; }
+    .ay-final__body strong { color: var(--navy-950); }
+    .ay-final__body a { font-weight: 800; }
+    .ay-detail-visual { width: 82px; height: 34px; display: flex; align-items: flex-end; gap: 5px; margin: 3px 0 0; }
+    .ay-detail-visual i { display: block; width: 16px; border-radius: 5px 5px 2px 2px; background: var(--blue-500); animation: ay-bars 1.8s ease-in-out infinite alternate; }
+    .ay-detail-visual i:nth-child(1) { height: 14px; animation-delay: -.35s; }
+    .ay-detail-visual i:nth-child(2) { height: 24px; animation-delay: -.7s; background: var(--cyan-400); }
+    .ay-detail-visual i:nth-child(3) { height: 32px; background: var(--lime-400); }
+    .ay-detail-visual--boundary { align-items: center; }
+    .ay-detail-visual--boundary i { width: 35px; height: 22px; border: 2px solid var(--blue-500); background: transparent; border-radius: 8px; animation: ay-panels 2.2s ease-in-out infinite; }
+    .ay-detail-visual--boundary i:nth-child(2) { border-color: var(--coral); animation-delay: -.7s; }
+    .ay-detail-visual--tradition { position: relative; display: block; width: 45px; height: 34px; border: 2px solid var(--blue-500); border-radius: 50%; animation: ay-spin 6s linear infinite; }
+    .ay-detail-visual--tradition::before, .ay-detail-visual--tradition::after { content: ""; position: absolute; border-radius: 50%; }
+    .ay-detail-visual--tradition::before { inset: 6px; border: 2px solid var(--cyan-400); }
+    .ay-detail-visual--tradition::after { top: 12px; left: 17px; width: 7px; height: 7px; background: var(--lime-400); box-shadow: 0 0 0 5px rgba(183,237,104,.18); }
+    .ay-detail-visual--risk { width: 38px; height: 34px; position: relative; display: grid; place-items: center; color: #fff; background: var(--coral); clip-path: polygon(50% 0, 100% 100%, 0 100%); animation: ay-alert 1.7s ease-in-out infinite; }
+    .ay-detail-visual--risk::after { content: "!"; padding-top: 9px; font-size: 1.1rem; font-style: normal; font-weight: 900; }
+    .ay-detail-visual--research { position: relative; width: 90px; height: 34px; display: flex; align-items: center; justify-content: space-between; }
+    .ay-detail-visual--research::before { content: ""; position: absolute; right: 4px; left: 4px; height: 2px; background: #cbd8e2; }
+    .ay-detail-visual--research i { position: relative; z-index: 1; width: 12px; height: 12px; border: 3px solid var(--blue-500); border-radius: 50%; background: #fff; animation: ay-dots 2s ease-in-out infinite alternate; }
+    .ay-detail-visual--research i:nth-child(2) { border-color: var(--cyan-400); animation-delay: -.6s; }
+    .ay-detail-visual--research i:nth-child(3) { border-color: var(--lime-400); animation-delay: -1.2s; }
+    .ay-detail-visual--practice { width: 42px; height: 34px; display: grid; place-items: center; color: #2e7626; background: var(--sage); border: 2px solid #81c877; border-radius: 13px 13px 17px 17px; animation: ay-shield 2.2s ease-in-out infinite; }
+    .ay-detail-visual--practice::after { content: "✓"; font-size: 1.1rem; font-weight: 900; }
+    @keyframes ay-bars { from { transform: scaleY(.72); transform-origin: bottom; } to { transform: scaleY(1); transform-origin: bottom; } }
+    @keyframes ay-panels { 0%,100% { transform: translateX(0); } 50% { transform: translateX(3px); } }
+    @keyframes ay-alert { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+    @keyframes ay-dots { from { transform: scale(.8); } to { transform: scale(1.1); } }
+    @keyframes ay-shield { 0%,100% { transform: scale(1); } 50% { transform: scale(1.06); } }
+    @media (prefers-reduced-motion: reduce) { .ay-detail-visual, .ay-detail-visual * { animation: none !important; } }
+    .ay-source-strip { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; padding: 25px 28px; color: #dbe7f0; background: linear-gradient(135deg, #102f50, #07182a); border-radius: 20px; }
+    .ay-source-strip p { max-width: 730px; margin: 0; font-size: .84rem; }
+    .ay-source-strip strong { color: #fff; }
+    .ay-source-strip .ay-button { flex-shrink: 0; }
+    .ay-ref { font-size: .67em; font-weight: 900; vertical-align: super; text-decoration: none; }
+    .ay-legal { max-width: 900px; margin: 28px auto 0; color: var(--muted); font-size: .72rem; text-align: center; }
+    .ay-legal strong { color: var(--navy-950); }
+
+    @media (max-width: 980px) {
+      .ay-hero__grid, .ay-doctrine, .ay-safety { grid-template-columns: 1fr; }
+      .ay-orbit { min-height: 290px; max-width: 520px; margin: 0 auto; }
+      .ay-doctrine__aside { position: static; }
+      .ay-verdict-grid { grid-template-columns: repeat(2, 1fr); }
+      .ay-flow { grid-template-columns: repeat(2, 1fr); }
+      .ay-flow__step:nth-child(2)::after { display: none; }
+    }
+    @media (max-width: 680px) {
+      .ay-hero { padding: 55px 0 65px; }
+      .ay-hero__grid { gap: 36px; }
+      .ay-hero__lead { font-size: .97rem; }
+      .ay-section { padding: 65px 0; }
+      .ay-grid-3, .ay-grid-2, .ay-term-list, .ay-verdict-grid, .ay-flow, .ay-final { grid-template-columns: 1fr; }
+      .ay-orbit__ring { width: 240px; height: 240px; }
+      .ay-orbit__label--one { right: -3px; }
+      .ay-flow__step:not(:last-child)::after { display: none; }
+      .ay-filter { gap: 7px; }
+      .ay-filter button { font-size: .68rem; }
+      .ay-accordion__body { padding-right: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"Ayurveda : ce que les preuves permettent d'affirmer",
+    "description":"Dossier de vulgarisation scientifique sur les interventions ayurvédiques, leur efficacité, leur diagnostic et leurs risques.",
+    "inLanguage":"fr-FR",
+    "dateModified":"2026-07-21",
+    "author":{"@type":"Organization","name":"InforMagicien"},
+    "publisher":{"@type":"Organization","name":"InforMagicien","url":"https://www.pc32.fr/"},
+    "mainEntityOfPage":"https://www.pc32.fr/ayurveda-debunk.html"
+  }
+  </script>
+</head>
+<body id="accueil" class="ay-page">
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+  <div class="topbar ay-topbar">
+    <div class="container topbar__inner">
+      <p><strong>Dossier scientifique</strong> · lecture grand public</p>
+      <p class="topbar__hours">Recherche arrêtée au 21 juillet 2026</p>
+    </div>
+  </div>
+  <header class="site-header">
+    <div class="container header__inner">
+      <a class="brand" href="index.html" aria-label="InforMagicien, retour à l’accueil">
+        <span class="brand__mark" aria-hidden="true"><img src="assets/logo-informagicien.png" alt=""></span>
+        <span class="brand__text"><strong>InforMagicien</strong><small>L’informatique, simplement.</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span><span class="sr-only">Ouvrir le menu</span></button>
+      <nav class="site-nav" id="site-nav" aria-label="Navigation du dossier">
+        <a href="#comprendre">Comprendre</a>
+        <a href="#preuves">Preuves</a>
+        <a href="#securite">Sécurité</a>
+        <a href="#conclusion">Conclusion</a>
+        <a class="site-nav__website" href="ayurveda-sources.html">Sources</a>
+      </nav>
+      <a class="header-call" href="tel:+33645768784"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.92Z"/></svg><span><small>Besoin d’aide ?</small>06 45 76 87 84</span></a>
+      <a class="language-switch" href="index-en.html" lang="en" aria-label="View the English version">EN</a>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <section class="ay-hero">
+      <div class="container ay-hero__grid">
+        <div>
+          <div class="eyebrow">Enquête contradictoire · médecine fondée sur les preuves</div>
+          <h1>Ayurveda : <span>tradition, soin, promesse</span> — que disent vraiment les données&nbsp;?</h1>
+          <p class="ay-hero__lead">L’Ayurveda n’est pas une intervention unique. Cette enquête sépare les routines de bien-être, les plantes, les mélanges, les produits minéraux, le diagnostic des doshas et les pratiques qui pourraient retarder des soins efficaces.</p>
+          <div class="ay-hero__actions"><a class="ay-button ay-button--lime" href="#verdict">Voir les verdicts</a><a class="ay-button ay-button--ghost" href="ayurveda-sources.html">Ouvrir la bibliographie</a></div>
+          <p class="ay-hero__note">Position de méthode : respecter une tradition et ses usages culturels ne dispense pas de mesurer l’efficacité, la qualité et les risques d’une intervention précise.</p>
+        </div>
+        <div class="ay-orbit" aria-label="Animation résumant les trois questions de l’enquête">
+          <div class="ay-orbit__ring" aria-hidden="true"></div>
+          <div class="ay-orbit__core"><div><strong>Une question<br>à la fois</strong><small>Quel produit ?<br>Quel effet ?<br>Quel risque ?</small></div></div>
+          <span class="ay-orbit__label ay-orbit__label--one">preuve clinique</span><span class="ay-orbit__label ay-orbit__label--two">qualité du produit</span><span class="ay-orbit__label ay-orbit__label--three">sécurité</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="ay-section ay-section--soft" id="comprendre">
+      <div class="container">
+        <div class="ay-heading"><div class="ay-kicker">01 · Définir avant de juger</div><h2>« L’Ayurveda » ne désigne pas une pilule unique</h2><p>Le mot recouvre un ensemble historique hétérogène : textes, diagnostics, régimes, pratiques corporelles, plantes et préparations pouvant contenir des minéraux ou métaux. Une étude sur un extrait précis ne valide donc pas toute la doctrine — et un risque constaté sur un produit ne condamne pas chaque pratique de bien-être.</p></div>
+        <div class="ay-callout"><div class="ay-callout__icon" aria-hidden="true">!</div><p><strong>Règle de lecture :</strong> « naturel », « ancien », « holistique », « personnalisé » et « utilisé en Inde » décrivent une origine, une intention ou un contexte. Ils ne mesurent ni l’effet clinique ni la sécurité d’un produit.</p></div>
+        <div class="ay-grid-3" style="margin-top:22px">
+          <article class="ay-card"><span class="ay-card__tag">Doctrine</span><h3>Doshas & prakriti</h3><p>Vata, pitta, kapha et la constitution individuelle organisent le raisonnement traditionnel. Les équivalences avec le système nerveux, le métabolisme ou l’immunité restent des analogies, pas des identifications biologiques démontrées.</p><div class="ay-chips"><span class="ay-chip">concept théorique</span><span class="ay-chip">mesure non standardisée</span></div></article>
+          <article class="ay-card"><span class="ay-card__tag">Interventions</span><h3>Plantes & routines</h3><p>Une plante peut contenir une molécule active, et une routine peut améliorer le sommeil ou l’activité. La question scientifique est alors : quelle dose, quel produit, quel comparateur et quel bénéfice clinique au-delà du contexte de soin&nbsp;?</p><div class="ay-chips"><span class="ay-chip">à étudier au cas par cas</span><span class="ay-chip">effet non spécifique</span></div></article>
+          <article class="ay-card ay-card--warn"><span class="ay-card__tag">Risque</span><h3>Minéraux & substitution</h3><p>Les bhasmas et certains produits complexes imposent une analyse indépendante. Remplacer un traitement contre le cancer, le diabète, une infection ou une maladie psychiatrique grave peut créer une perte de chance.</p><div class="ay-chips"><span class="ay-chip">plomb · mercure · arsenic</span><span class="ay-chip">retard de soins</span></div></article>
+        </div>
+        <div class="ay-grid-2" style="margin-top:22px">
+          <article class="ay-card"><span class="ay-card__tag">Protocole variable</span><h3>Panchakarma</h3><p>Selon les écoles, le terme peut recouvrir vomissements provoqués, purgation, lavements, administration nasale, sudation, jeûne ou ingestion d’huiles. Chaque geste doit être étudié séparément : un programme multimodal ne permet pas d’attribuer une amélioration aux « toxines » éliminées. Déshydratation, troubles électrolytiques, infection, aspiration et interactions sont des risques à surveiller.</p><div class="ay-chips"><span class="ay-chip">pas de « détox » mesurée par défaut</span><span class="ay-chip">sécurité prioritaire</span></div><a class="ay-verdict__source" href="https://www.who.int/publications/i/item/9789240042674" target="_blank" rel="noopener">OMS : pratique et sécurité ↗</a></article>
+          <article class="ay-card"><span class="ay-card__tag">Promesse de longévité</span><h3>Rasayana</h3><p>Les préparations dites rajeunissantes ou destinées à l’immunité, à l’énergie ou aux performances cognitives ne forment pas une classe pharmacologique homogène. Une conclusion exige la composition du produit, une dose reproductible, un comparateur et des résultats cliniques pertinents.</p><div class="ay-chips"><span class="ay-chip">mélanges complexes</span><span class="ay-chip">composition à vérifier</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="ay-section" id="doctrine">
+      <div class="container">
+        <div class="ay-heading"><div class="ay-kicker">02 · Les concepts internes</div><h2>Les traduire en termes biomédicaux ne suffit pas</h2><p>Les concepts ont une fonction dans la cohérence interne de la tradition. Une enquête rigoureuse doit préciser leur définition, leur variabilité entre écoles, leur reproductibilité et leur capacité à prédire un résultat de santé.</p></div>
+        <div class="ay-doctrine">
+          <aside class="ay-doctrine__aside"><div class="ay-orbit-mini" aria-hidden="true"><span>ॐ</span></div><h3>Ce que mesure une science clinique</h3><p>Un diagnostic utile doit être défini avant l’étude, reconnu de façon suffisamment constante et relié à un résultat qui compte pour le patient. Une corrélation exploratoire ne transforme pas un modèle traditionnel en organe ou en biomarqueur.</p></aside>
+          <dl class="ay-term-list">
+            <div class="ay-term"><dt>Doshas · vata, pitta, kapha</dt><dd>Forces fonctionnelles décrites par la doctrine pour expliquer équilibre et maladie.<span>Pas d’entité biologique mesurée de manière consensuelle.</span></dd></div>
+            <div class="ay-term"><dt>Prakriti / vikriti</dt><dd>Constitution supposée stable, puis état de déséquilibre acquis.<span>Questionnaires variables ; prédiction clinique non établie.</span></dd></div>
+            <div class="ay-term"><dt>Agni</dt><dd>« Feu » digestif et transformateur, central dans la santé selon l’Ayurveda.<span>À ne pas assimiler automatiquement au métabolisme.</span></dd></div>
+            <div class="ay-term"><dt>Ama</dt><dd>Résidus ou « toxines » attribués à une digestion ou transformation incomplète.<span>La toxine doit être identifiée et dosée pour devenir une hypothèse testable.</span></dd></div>
+            <div class="ay-term"><dt>Dhatus / srotas</dt><dd>Tissus et canaux décrits dans les modèles anatomiques et physiologiques ayurvédiques.<span>Les catégories ne correspondent pas directement aux organes modernes.</span></dd></div>
+            <div class="ay-term"><dt>Ojas / prana</dt><dd>Vitalité, énergie ou force de vie dans différents registres de la tradition.<span>Un mot général ne constitue pas une grandeur physique.</span></dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="ay-section ay-section--navy" id="preuves">
+      <div class="container" id="verdict">
+        <div class="ay-heading"><div class="ay-kicker">03 · Carte des preuves</div><h2>Le verdict dépend de l’intervention exacte</h2><p>Les boutons filtrent les familles de pratiques. Les verdicts utilisent la grille du script d’enquête : ils ne sont pas un jugement global sur une culture ni sur chaque personne qui pratique l’Ayurveda.</p></div>
+        <div class="ay-filter" role="group" aria-label="Filtrer les verdicts"><button type="button" data-filter="all" aria-pressed="true">Tout</button><button type="button" data-filter="routine" aria-pressed="false">Routines</button><button type="button" data-filter="plante" aria-pressed="false">Plantes</button><button type="button" data-filter="diagnostic" aria-pressed="false">Diagnostic</button><button type="button" data-filter="risque" aria-pressed="false">Risques</button><button type="button" data-filter="substitution" aria-pressed="false">Substitution</button></div>
+        <div class="ay-verdict-grid">
+          <article class="ay-verdict" data-kind="routine"><div class="ay-verdict__head"><h3>Régime, sommeil, activité, yoga</h3><span class="ay-verdict__badge ay-verdict__badge--green">Effet possible</span></div><p>Ces éléments peuvent agir par des mécanismes connus ou par le contexte de soin. Une amélioration ne prouve pas qu’un dosha, une « détox » ou une théorie énergétique en est la cause.</p><div class="ay-verdict__meta"><span>effet composite</span><span>comparateur requis</span></div><a class="ay-verdict__source" href="https://www.who.int/news-room/questions-and-answers/item/traditional-medicine" target="_blank" rel="noopener">OMS : intégration fondée sur les preuves ↗</a></article>
+          <article class="ay-verdict" data-kind="plante"><div class="ay-verdict__head"><h3>Plantes ou extrait standardisé</h3><span class="ay-verdict__badge ay-verdict__badge--amber">Au cas par cas</span></div><p>La présence d’un principe actif ou une activité en laboratoire ne suffit pas. Il faut une composition connue, une dose reproductible, un essai comparatif et une surveillance des effets indésirables.</p><div class="ay-verdict__meta"><span>produit exact</span><span>dose · durée</span></div><a class="ay-verdict__source" href="https://www.anses.fr/fr/content/complements-alimentaires-base-de-plantes-vers-une-meilleure-information-des-consommateurs" target="_blank" rel="noopener">Anses : précautions & interactions ↗</a></article>
+          <article class="ay-verdict" data-kind="plante"><div class="ay-verdict__head"><h3>Ashwagandha</h3><span class="ay-verdict__badge ay-verdict__badge--amber">Données limitées</span></div><p>Quelques préparations peuvent aider le stress ou l’insomnie à court terme, mais les préparations et les études diffèrent. Des atteintes hépatiques rares mais parfois sévères sont rapportées ; des interactions sont possibles.</p><div class="ay-verdict__meta"><span>Withania somnifera</span><span>long terme inconnu</span></div><a class="ay-verdict__source" href="https://www.nccih.nih.gov/health/ashwagandha" target="_blank" rel="noopener">NCCIH : efficacité & sécurité ↗</a></article>
+          <article class="ay-verdict" data-kind="diagnostic"><div class="ay-verdict__head"><h3>Lecture du pouls / de la langue</h3><span class="ay-verdict__badge ay-verdict__badge--blue">Données insuffisantes</span></div><p>Dans une étude de 15 praticiens et 20 volontaires, les accords inter-évaluateurs étaient faibles : kappa moyen de 0,07 pour le pouls, 0,17 pour la langue et 0,28 pour la prakriti.</p><div class="ay-verdict__meta"><span>reproductibilité faible</span><span>étude exploratoire</span></div><a class="ay-verdict__source" href="https://pubmed.ncbi.nlm.nih.gov/24191170/" target="_blank" rel="noopener">Kurande et al., 2013 ↗</a></article>
+          <article class="ay-verdict" data-kind="risque"><div class="ay-verdict__head"><h3>Bhasma / produit minéral</h3><span class="ay-verdict__badge ay-verdict__badge--red">Risque à vérifier</span></div><p>Une « purification » traditionnelle ne démontre pas l’innocuité. Sans analyse du lot et de la forme chimique, l’exposition au plomb, au mercure ou à l’arsenic est une question de toxicologie, pas de croyance.</p><div class="ay-verdict__meta"><span>lot traçable</span><span>analyse indépendante</span></div><a class="ay-verdict__source" href="https://www.fda.gov/drugs/fraudulent-products/fda-warns-about-heavy-metal-poisoning-associated-certain-unapproved-ayurvedic-drug-products" target="_blank" rel="noopener">FDA : alertes métaux lourds ↗</a></article>
+          <article class="ay-verdict" data-kind="substitution"><div class="ay-verdict__head"><h3>Remplacer un traitement efficace</h3><span class="ay-verdict__badge ay-verdict__badge--red">Risque supérieur</span></div><p>Un complément ou un protocole ayurvédique ne doit pas servir à retarder un diagnostic ni à interrompre une prescription. Le risque est particulièrement sérieux en oncologie, diabétologie, infection, grossesse ou maladie psychiatrique grave.</p><div class="ay-verdict__meta"><span>perte de chance</span><span>avis médical</span></div><a class="ay-verdict__source" href="https://www.nccih.nih.gov/health/ayurvedic-medicine-in-depth" target="_blank" rel="noopener">NCCIH : ne pas retarder les soins ↗</a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="ay-section ay-section--soft">
+      <div class="container">
+        <div class="ay-heading"><div class="ay-kicker">04 · Lire une étude sans se faire impressionner</div><h2>De la promesse au bénéfice utile</h2><p>Une phrase comme « améliore l’immunité » ou « élimine les toxines » saute plusieurs étapes. Voici le parcours minimal pour transformer une affirmation en question vérifiable.</p></div>
+        <div class="ay-flow">
+          <div class="ay-flow__step"><div class="ay-flow__number">01</div><h3>Formuler</h3><p>Quel produit, quelle dose, quelle maladie, quelle population et quel critère principal&nbsp;?</p></div>
+          <div class="ay-flow__step"><div class="ay-flow__number">02</div><h3>Comparer</h3><p>Placebo crédible, traitement standard ou simple version mode de vie&nbsp;?</p></div>
+          <div class="ay-flow__step"><div class="ay-flow__number">03</div><h3>Mesurer</h3><p>Taille de l’effet, intervalle de confiance, durée, abandons, analyse en intention de traiter.</p></div>
+          <div class="ay-flow__step"><div class="ay-flow__number">04</div><h3>Surveiller</h3><p>Composition, interactions, toxicité, lots et événements rares : un petit essai ne suffit pas.</p></div>
+        </div>
+        <div class="ay-grid-2" style="margin-top:22px">
+          <article class="ay-card"><span class="ay-card__tag">Ce qu’une étude positive peut montrer</span><h3>Un effet dans un contexte précis</h3><p>Par exemple, un extrait standardisé peut modifier un score de stress pendant huit semaines. Cela ne prouve pas que tous les produits portant le même nom agissent pareil, ni que le mécanisme ayurvédique est confirmé.</p></article>
+          <article class="ay-card"><span class="ay-card__tag">Ce qu’elle ne montre pas</span><h3>Une guérison, une détox ou une innocuité à vie</h3><p>Un biomarqueur ou un questionnaire n’est pas automatiquement un bénéfice clinique. L’absence d’événement grave dans un petit essai ne prouve pas l’absence de risque rare.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="ay-section" id="securite">
+      <div class="container">
+        <div class="ay-heading"><div class="ay-kicker">05 · Sécurité avant marketing</div><h2>« Naturel » ne veut pas dire inoffensif</h2><p>Les risques ne sont pas uniformes : ils dépendent de la plante, de la dose, du lot, de la présence de métaux, des médicaments associés et de la personne exposée.</p></div>
+        <div class="ay-safety">
+          <article class="ay-warning"><span class="ay-card__tag">Signal d’alerte documenté</span><h3>Métaux lourds et produits non contrôlés</h3><p>La FDA a signalé des produits ayurvédiques contenant des niveaux nocifs de plomb, de mercure ou d’arsenic, associés à des atteintes rénales, neurologiques, digestives et cardiovasculaires. C’est un problème de produit et de contrôle qualité, pas une conclusion sur toutes les plantes.</p><ul><li>Ne pas consommer un produit sans étiquette complète, fabricant et lot traçable.</li><li>Prudence renforcée pour enfants, grossesse, allaitement, maladie hépatique ou rénale.</li><li>En cas de symptômes après un produit, contacter rapidement un professionnel de santé et conserver l’emballage.</li></ul></article>
+          <article class="ay-checklist"><h3>Avant toute prise, vérifier</h3><div class="ay-checklist__row"><div class="ay-checklist__mark">✓</div><div><strong>Identité botanique</strong><span>Nom latin, partie utilisée, extrait, dose par prise et dose quotidienne.</span></div></div><div class="ay-checklist__row"><div class="ay-checklist__mark">✓</div><div><strong>Composition réelle</strong><span>Analyse indépendante du lot, métaux lourds, contaminants et médicaments non déclarés.</span></div></div><div class="ay-checklist__row"><div class="ay-checklist__mark">✓</div><div><strong>Interactions</strong><span>Anticoagulants, antidiabétiques, antihypertenseurs, immunosuppresseurs, sédatifs, thyroïde.</span></div></div><div class="ay-checklist__row"><div class="ay-checklist__mark">✓</div><div><strong>Coordination</strong><span>Dire à son médecin ou pharmacien tout complément utilisé ; ne jamais arrêter seul un traitement prescrit.</span></div></div></article>
+        </div>
+        <p class="ay-legal"><strong>France / Union européenne :</strong> les compléments alimentaires sont des denrées alimentaires, pas des médicaments. Les allégations de santé doivent respecter le cadre européen et ne peuvent pas attribuer à un complément la prévention, le traitement ou la guérison d’une maladie. <a href="https://food.ec.europa.eu/food-safety/labelling-and-nutrition/nutrition-and-health-claims_en" target="_blank" rel="noopener">Commission européenne ↗</a> · <a href="https://www.anses.fr/fr/content/complements-alimentaires-base-de-plantes-vers-une-meilleure-information-des-consommateurs" target="_blank" rel="noopener">Anses ↗</a></p>
+      </div>
+    </section>
+
+    <section class="ay-section ay-section--sage">
+      <div class="container">
+        <div class="ay-heading"><div class="ay-kicker">06 · Répondre loyalement aux arguments</div><h2>Ce que chaque argument établit — et n’établit pas</h2></div>
+        <div class="ay-accordion">
+          <details open><summary>« C’est utilisé depuis des millénaires »</summary><div class="ay-accordion__body"><p>Une longue histoire documente une transmission et une importance culturelle. Elle ne remplace pas un essai contrôlé : les diagnostics, les produits, les doses et les maladies changent ; les succès sont plus visibles que les échecs ; les risques peuvent être différés.</p></div></details>
+          <details><summary>« Il existe des études scientifiques »</summary><div class="ay-accordion__body"><p>Oui, certaines études existent. La bonne question est leur taille, leur qualité, leur préenregistrement, leur comparateur, la composition du produit, la durée et la réplication indépendante. Le NCCIH résume que quelques essais suggèrent un effet sur l’arthrose ou certains symptômes du diabète, mais que la plupart sont petits ou mal conçus.</p></div></details>
+          <details><summary>« C’est naturel et donc plus sûr »</summary><div class="ay-accordion__body"><p>Une plante est une source de molécules actives : cela peut créer un effet, une interaction ou une toxicité. L’Anses rappelle que des compléments à base de plantes peuvent provoquer des allergies, des atteintes hépatiques et des interactions, surtout selon l’extrait et la sensibilité de la personne.</p></div></details>
+          <details><summary>« La personnalisation prouve que le traitement est meilleur »</summary><div class="ay-accordion__body"><p>Personnaliser peut améliorer l’écoute et l’adhésion. Pour démontrer une précision médicale, il faut toutefois un diagnostic reproductible et un bénéfice supérieur à une consultation attentive, à un conseil de mode de vie ou à un traitement standard. L’étude de fiabilité du diagnostic ayurvédique montre justement une concordance faible entre praticiens pour le pouls et la langue.</p></div></details>
+          <details><summary>« Critiquer l’Ayurveda, c’est mépriser l’Inde »</summary><div class="ay-accordion__body"><p>Respect culturel et évaluation clinique sont compatibles. Une enquête sérieuse distingue les personnes, l’histoire et les usages de la question précise : un produit donné soigne-t-il cette maladie, à cette dose, avec quel risque et quelle alternative&nbsp;?</p></div></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="ay-section" id="conclusion">
+      <div class="container">
+        <div class="ay-heading"><div class="ay-kicker">07 · Conclusion obligatoire</div><h2>Ce que les preuves permettent — et ne permettent pas — d’affirmer</h2><p>La conclusion la plus solide est différenciée. Elle évite à la fois l’enthousiasme commercial et la caricature du debunk.</p></div>
+        <div class="ay-final">
+          <details class="ay-card ay-final__details">
+            <summary><span class="ay-card__tag">Ce que les preuves permettent d’affirmer</span><span class="ay-final__summary-title">Des effets sont plausibles pour certaines composantes</span><span class="ay-detail-visual ay-detail-visual--evidence" aria-hidden="true"><i></i><i></i><i></i></span><span class="ay-final__hint">Cliquer pour le détail et les sources</span></summary>
+            <div class="ay-final__body"><p>Des routines de mode de vie peuvent être utiles ; certaines plantes ont une pharmacologie réelle ; quelques préparations ont des signaux cliniques. Cela doit être vérifié produit par produit, avec sa dose, sa composition et son comparateur.</p><p><strong>Ce que cela veut dire :</strong> un signal positif peut concerner une intervention précise sans valider l’ensemble de l’Ayurveda ni sa théorie des doshas.</p><p><strong>Sources :</strong> <a href="https://www.nccih.nih.gov/health/ayurvedic-medicine-in-depth" target="_blank" rel="noopener">NCCIH, synthèse des essais ↗</a> · <a href="https://www.who.int/news-room/questions-and-answers/item/traditional-medicine" target="_blank" rel="noopener">OMS, intégration fondée sur les preuves ↗</a></p></div>
+          </details>
+          <details class="ay-card ay-final__details">
+            <summary><span class="ay-card__tag">Ce que les preuves ne permettent pas d’affirmer</span><span class="ay-final__summary-title">Ni une efficacité globale ni une guérison générale</span><span class="ay-detail-visual ay-detail-visual--boundary" aria-hidden="true"><i></i><i></i></span><span class="ay-final__hint">Cliquer pour le détail et les sources</span></summary>
+            <div class="ay-final__body"><p>Les données ne valident pas l’ensemble de la doctrine, les doshas comme organes biologiques, ni les promesses de détoxification, d’immunité ou de traitement du cancer sans preuve spécifique sur l’intervention concernée.</p><p><strong>Pourquoi :</strong> une étude sur un extrait, un questionnaire ou un biomarqueur ne démontre pas une guérison, une prévention générale ou une supériorité sur le traitement standard.</p><p><strong>Sources :</strong> <a href="https://www.nccih.nih.gov/health/ayurvedic-medicine-in-depth" target="_blank" rel="noopener">NCCIH, limites des essais disponibles ↗</a> · <a href="https://www.who.int/news-room/questions-and-answers/item/traditional-medicine" target="_blank" rel="noopener">OMS, exigence de validation rigoureuse ↗</a></p></div>
+          </details>
+          <details class="ay-card ay-final__details">
+            <summary><span class="ay-card__tag">Tradition & métaphysique</span><span class="ay-final__summary-title">Une valeur culturelle n’est pas un résultat clinique</span><span class="ay-detail-visual ay-detail-visual--tradition" aria-hidden="true"></span><span class="ay-final__hint">Cliquer pour le détail et les sources</span></summary>
+            <div class="ay-final__body"><p>Agni, ama, prana, ojas et l’équilibre constitutionnel appartiennent au vocabulaire doctrinal. Ils peuvent être décrits fidèlement comme des concepts internes sans être présentés comme des organes, des toxines ou des énergies mesurées.</p><p><strong>Pour devenir des hypothèses scientifiques :</strong> un concept doit être défini, mesuré avec une méthode reproductible et relié à un résultat de santé vérifiable.</p><p><strong>Sources :</strong> <a href="https://www.who.int/publications/i/item/9789240064935" target="_blank" rel="noopener">OMS, terminologies ayurvédiques ↗</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/24191170/" target="_blank" rel="noopener">Kurande et al., fiabilité du diagnostic ↗</a></p></div>
+          </details>
+          <details class="ay-card ay-card--warn ay-final__details">
+            <summary><span class="ay-card__tag">Risques documentés ou plausibles</span><span class="ay-final__summary-title">Qualité variable, métaux, interactions, retard de soins</span><span class="ay-detail-visual ay-detail-visual--risk" aria-hidden="true"></span><span class="ay-final__hint">Cliquer pour le détail et les sources</span></summary>
+            <div class="ay-final__body"><p>Les alertes sur les métaux lourds, les atteintes hépatiques liées à certains produits et les interactions imposent une vigilance accrue. Le risque augmente si l’Ayurveda remplace une prise en charge validée.</p><p><strong>Situations prioritaires :</strong> grossesse, allaitement, enfance, maladie hépatique ou rénale, anticoagulants, diabète, immunodépression et traitements psychiatriques ou anticancéreux.</p><p><strong>Sources :</strong> <a href="https://www.fda.gov/drugs/fraudulent-products/fda-warns-about-heavy-metal-poisoning-associated-certain-unapproved-ayurvedic-drug-products" target="_blank" rel="noopener">FDA, métaux lourds ↗</a> · <a href="https://www.ncbi.nlm.nih.gov/books/NBK548536/" target="_blank" rel="noopener">LiverTox, Ashwagandha et foie ↗</a> · <a href="https://www.anses.fr/fr/content/complements-alimentaires-base-de-plantes-vers-une-meilleure-information-des-consommateurs" target="_blank" rel="noopener">Anses, plantes et interactions ↗</a></p></div>
+          </details>
+          <details class="ay-card ay-final__details">
+            <summary><span class="ay-card__tag">Pour modifier la conclusion</span><span class="ay-final__summary-title">Des essais mieux conçus et des produits traçables</span><span class="ay-detail-visual ay-detail-visual--research" aria-hidden="true"><i></i><i></i><i></i></span><span class="ay-final__hint">Cliquer pour le détail et les sources</span></summary>
+            <div class="ay-final__body"><p>Il faudrait des produits standardisés, des essais préenregistrés, des comparateurs crédibles, des critères cliniques pertinents, un suivi assez long et une pharmacovigilance indépendante.</p><p><strong>Le point décisif :</strong> chaque résultat devrait être répliqué avec la même formulation et rester interprétable malgré les abandons, les comparaisons multiples et les effets du mode de vie.</p><p><strong>Sources :</strong> <a href="https://www.who.int/publications-detail-redirect/9789241506090" target="_blank" rel="noopener">OMS, méthodologie de recherche en médecine traditionnelle ↗</a> · <a href="https://www.who.int/publications/i/item/9789240042674" target="_blank" rel="noopener">OMS, qualité et sécurité de la pratique ↗</a></p></div>
+          </details>
+          <details class="ay-card ay-final__details">
+            <summary><span class="ay-card__tag">En pratique</span><span class="ay-final__summary-title">Complément éventuel, jamais substitut automatique</span><span class="ay-detail-visual ay-detail-visual--practice" aria-hidden="true"></span><span class="ay-final__hint">Cliquer pour le détail et les sources</span></summary>
+            <div class="ay-final__body"><p>Avant toute décision : parler de la composition exacte avec un médecin ou un pharmacien, surtout en cas de grossesse, maladie chronique, traitement régulier ou symptômes persistants.</p><p><strong>Règle de sécurité :</strong> ne pas interrompre seul un traitement prescrit et ne pas retarder un diagnostic pour essayer un produit présenté comme détoxifiant, immunostimulant ou curatif.</p><p><strong>Sources :</strong> <a href="https://www.nccih.nih.gov/health/ayurvedic-medicine-in-depth" target="_blank" rel="noopener">NCCIH, ne pas retarder les soins ↗</a> · <a href="https://www.efsa.europa.eu/en/topics/topic/food-supplements" target="_blank" rel="noopener">EFSA, statut des compléments ↗</a></p></div>
+          </details>
+        </div>
+        <div class="ay-source-strip" style="margin-top:25px"><p><strong>Pour aller plus loin :</strong> consultez la bibliographie annotée ou suivez le script vidéo d’Amir, avec texte oral, consignes de montage et documents scientifiques à afficher.</p><a class="ay-button ay-button--ghost" href="amir-ayurveda.html">Script vidéo d’Amir</a><a class="ay-button ay-button--lime" href="ayurveda-sources.html">Voir les sources</a></div>
+      </div>
+    </section>
+
+    <section class="ay-section ay-section--navy">
+      <div class="container">
+        <div class="ay-heading"><div class="ay-kicker">Pour un debunk oral</div><h2>30 secondes · 3 minutes · 10 minutes</h2></div>
+        <div class="ay-accordion">
+          <details><summary>Version 30 secondes</summary><div class="ay-accordion__body"><p>L’Ayurveda n’est pas un traitement unique : il faut séparer les routines, les plantes, les produits minéraux et le diagnostic des doshas. Certaines composantes peuvent avoir un intérêt, mais les preuves sont souvent limitées et les produits ne sont pas interchangeables. Les métaux lourds, les interactions et le retard de soins sont des risques réels. Respecter une tradition n’oblige pas à confondre usage ancien et efficacité démontrée.</p></div></details>
+          <details><summary>Version 3 minutes</summary><div class="ay-accordion__body"><p>Une étude positive sur une plante précise ne valide pas les doshas. Pour juger, on demande le produit, la dose, la maladie, le comparateur et le critère clinique. Les essais ayurvédiques sont souvent petits, multimodaux et hétérogènes. Les diagnostics au pouls ou à la langue doivent aussi être reproductibles : une étude de 2013 a trouvé des accords faibles entre praticiens. Enfin, « naturel » ne veut pas dire sûr : des alertes sanitaires concernent des produits contenant plomb, mercure ou arsenic, et certaines plantes peuvent interagir ou atteindre le foie. Le bon verdict est donc local, pas global.</p></div></details>
+          <details><summary>Version développée de 10 minutes</summary><div class="ay-accordion__body"><p>Commencer par distinguer l’histoire de l’Ayurveda, sa cohérence doctrinale et les interventions contemporaines. Expliquer ensuite qu’un régime, une activité physique, une méditation, un massage, un extrait de plante et une bhasma ne posent pas la même question. Montrer la chaîne de preuve : affirmation falsifiable, produit traçable, essai comparatif, taille d’effet, pertinence clinique, surveillance des effets indésirables et réplication. Prendre l’ashwagandha comme exemple : quelques signaux pour stress ou sommeil, mais limites de préparation et de durée, interactions et cas d’atteinte hépatique. Terminer par la sécurité : une pratique complémentaire éventuellement discutée avec un professionnel ne doit jamais retarder un diagnostic ni remplacer un traitement efficace.</p></div></details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__top"><a class="brand brand--footer" href="index.html"><span class="brand__mark" aria-hidden="true"><img src="assets/logo-informagicien.png" alt=""></span><span class="brand__text"><strong>InforMagicien</strong><small>L’informatique, simplement.</small></span></a><p>Dossier d’information scientifique indépendant, publié sur pc32.fr.</p><a class="footer__call" href="ayurveda-sources.html">Bibliographie</a></div>
+    <div class="container footer__bottom"><p>© <span id="year">2026</span> InforMagicien · Tous droits réservés.</p><div><a href="index.html">Accueil</a><a href="mentions-legales.html">Mentions légales</a><a href="confidentialite.html">Confidentialité</a></div></div>
+  </footer>
+  <button class="scroll-top" type="button" aria-label="Remonter en haut de la page" title="Remonter en haut"><svg class="scroll-top__icon" viewBox="0 0 44 44" aria-hidden="true"><circle class="scroll-top__track" cx="22" cy="22" r="18"/><circle class="scroll-top__progress" cx="22" cy="22" r="18"/><path class="scroll-top__arrow" d="m16 25 6-7 6 7M22 18v11"/></svg></button>
+  <script>
+    document.querySelectorAll('[data-filter]').forEach((button) => {
+      button.addEventListener('click', () => {
+        const selected = button.dataset.filter;
+        document.querySelectorAll('[data-filter]').forEach((item) => item.setAttribute('aria-pressed', String(item === button)));
+        document.querySelectorAll('.ay-verdict').forEach((card) => card.classList.toggle('is-hidden', selected !== 'all' && card.dataset.kind !== selected));
+      });
+    });
+  </script>
+</body>
+</html>
