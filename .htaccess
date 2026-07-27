@@ -36,6 +36,32 @@ LimitRequestBody 32768
   ForceType application/octet-stream
 </FilesMatch>
 
+# Compression des fichiers texte : divise environ par cinq le poids du CSS.
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml
+  AddOutputFilterByType DEFLATE application/javascript application/x-javascript
+  AddOutputFilterByType DEFLATE application/json application/xml application/rss+xml
+  AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+<IfModule mod_brotli.c>
+  AddOutputFilterByType BROTLI_COMPRESS text/html text/plain text/css text/xml
+  AddOutputFilterByType BROTLI_COMPRESS application/javascript application/json
+  AddOutputFilterByType BROTLI_COMPRESS image/svg+xml
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType image/x-icon "access plus 1 month"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
 <IfModule mod_headers.c>
   Header always unset X-Powered-By
 
@@ -51,8 +77,16 @@ LimitRequestBody 32768
   Header always set Origin-Agent-Cluster "?1"
 
   <FilesMatch "\.(?:html|php)$">
-    Header always set Cache-Control "no-cache, no-store, must-revalidate"
-    Header always set Pragma "no-cache"
+    Header always set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+
+  # Les CSS/JS sont versionnes par un parametre ?v= : cache long et sur.
+  <FilesMatch "\.(?:css|js)$">
+    Header always set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  <FilesMatch "\.(?:png|jpe?g|gif|svg|webp|ico|woff2?)$">
+    Header always set Cache-Control "public, max-age=2592000"
   </FilesMatch>
 
   <FilesMatch "\.exe$">
