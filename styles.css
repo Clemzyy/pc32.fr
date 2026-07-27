@@ -4619,7 +4619,7 @@ h3 {
 .site-creation__links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
 .site-creation__links .site-showcase:first-child { grid-column: 1 / -1; width: calc(50% - 9px); justify-self: center; }
 .site-showcase { display: block; overflow: hidden; color: var(--navy-950); background: var(--white); border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow-sm); text-decoration: none; transition: transform .24s ease, box-shadow .24s ease, border-color .24s ease; }
-.site-showcase__preview { position: relative; display: block; aspect-ratio: 16 / 9; overflow: hidden; background: var(--white); border-bottom: 1px solid var(--line); }
+.site-showcase__preview { position: relative; display: block; aspect-ratio: 4 / 3; overflow: hidden; background: var(--white); border-bottom: 1px solid var(--line); }
 .site-showcase__preview::before, .site-showcase__preview::after { position: absolute; z-index: 1; pointer-events: none; opacity: 0; transition: opacity .26s ease, transform .3s cubic-bezier(.2, .8, .2, 1); content: ""; }.site-showcase__preview::before { inset: 0; background: rgba(255, 255, 255, .5); }.site-showcase__preview::after { top: 50%; left: 50%; width: 62px; height: 62px; background: var(--blue-600); clip-path: polygon(0 42%, 66% 42%, 46% 22%, 58% 10%, 100% 50%, 58% 90%, 46% 78%, 66% 58%, 0 58%); transform: translate(-65%, -50%) scale(.72); }
 .site-showcase__preview img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform .5s cubic-bezier(.2, .8, .2, 1), filter .5s ease; }
 .site-showcase__content { display: grid; min-height: 142px; align-content: start; gap: 10px; padding: 20px 21px 21px; }
