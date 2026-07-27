@@ -335,7 +335,6 @@ function createWebsitePortfolio() {
   return `<div class="service-portfolio" aria-label="${english ? "Website examples" : "Exemples de sites internet"}">
     ${projects.map((project, index) => `<a class="service-portfolio__card${index === 0 ? " service-portfolio__card--primary" : ""}" href="${project.href}" target="_blank" rel="noopener noreferrer">
       <span class="service-portfolio__preview"><img src="${project.image}" alt="${project.alt}" loading="lazy"><span class="service-portfolio__arrow" aria-hidden="true">→</span></span>
-      <span class="service-portfolio__label">${project.title}</span>
     </a>`).join("")}
   </div>`;
 }
