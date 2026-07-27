@@ -1363,6 +1363,115 @@ h3 {
   height: 480px;
 }
 
+/* Les réalisations remplacent l'animation technique uniquement pour la création de sites. */
+.service-modal__visual--portfolio {
+  display: block;
+  padding: 34px;
+  background: #eef4f7;
+}
+
+.service-modal__visual--portfolio::before,
+.service-modal__visual--portfolio::after {
+  display: none;
+}
+
+.service-portfolio {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 13px;
+  width: min(100%, 470px);
+  margin: 0 auto;
+}
+
+.service-portfolio__card {
+  display: block;
+  overflow: hidden;
+  color: var(--navy-950);
+  background: var(--white);
+  border: 1px solid rgba(7, 24, 42, .12);
+  border-radius: 11px;
+  box-shadow: 0 9px 18px rgba(7, 24, 42, .13);
+  text-decoration: none;
+  transition: transform .22s ease, box-shadow .22s ease;
+}
+
+.service-portfolio__card--primary {
+  grid-column: 1 / -1;
+  width: calc(50% - 6px);
+  justify-self: center;
+}
+
+.service-portfolio__preview {
+  position: relative;
+  display: block;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--white);
+}
+
+.service-portfolio__preview::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: rgba(255, 255, 255, .5);
+  opacity: 0;
+  transition: opacity .22s ease;
+}
+
+.service-portfolio__preview img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .35s ease;
+}
+
+.service-portfolio__arrow {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  color: var(--blue-600);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 900;
+  line-height: 1;
+  opacity: 0;
+  transform: translate(-65%, -50%) scale(.7);
+  transition: opacity .22s ease, transform .28s cubic-bezier(.2, .8, .2, 1);
+}
+
+.service-portfolio__label {
+  display: block;
+  padding: 8px 10px 9px;
+  font-size: .67rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+.service-portfolio__card:hover,
+.service-portfolio__card:focus-visible {
+  color: var(--navy-950);
+  box-shadow: 0 13px 27px rgba(7, 24, 42, .2);
+  transform: translateY(-4px);
+}
+
+.service-portfolio__card:hover .service-portfolio__preview::after,
+.service-portfolio__card:focus-visible .service-portfolio__preview::after,
+.service-portfolio__card:hover .service-portfolio__arrow,
+.service-portfolio__card:focus-visible .service-portfolio__arrow {
+  opacity: 1;
+}
+
+.service-portfolio__card:hover .service-portfolio__arrow,
+.service-portfolio__card:focus-visible .service-portfolio__arrow {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.service-portfolio__card:hover img,
+.service-portfolio__card:focus-visible img {
+  transform: scale(1.04);
+}
+
 .service-modal__content {
   align-self: center;
   max-height: 100%;
@@ -5354,6 +5463,28 @@ h3 {
   .service-modal__visual {
     min-height: 0;
     padding: 8px 62px 4px;
+  }
+
+  /* Aperçus de sites : conserver les trois liens lisibles dans la petite zone du mobile. */
+  .service-modal__visual--portfolio {
+    padding: 7px 32px;
+  }
+
+  .service-portfolio {
+    width: min(100%, 270px);
+    gap: 6px;
+  }
+
+  .service-portfolio__card--primary {
+    width: calc(42% - 3px);
+  }
+
+  .service-portfolio__preview {
+    aspect-ratio: 16 / 9;
+  }
+
+  .service-portfolio__label {
+    display: none;
   }
 
   .service-modal__visual::before {

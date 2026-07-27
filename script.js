@@ -309,6 +309,37 @@ function createServiceStep(step, index) {
   return item;
 }
 
+function createWebsitePortfolio() {
+  const english = document.documentElement.lang === "en";
+  const projects = [
+    {
+      href: "https://location-vacances-lebigourdan.fr",
+      image: "assets/portfolio/domaine-du-bigourdan-apercu.jpg",
+      title: "Domaine du Bigourdan",
+      alt: english ? "Preview of the Domaine du Bigourdan website" : "Aperçu du site Domaine du Bigourdan",
+    },
+    {
+      href: "https://milleans.fr",
+      image: "assets/portfolio/apercu-a-venir.svg",
+      title: "Milleans",
+      alt: english ? "Milleans preview coming soon" : "Aperçu de Milleans à venir",
+    },
+    {
+      href: "https://terreblanche.fr",
+      image: "assets/portfolio/apercu-a-venir.svg",
+      title: "Terre Blanche",
+      alt: english ? "Terre Blanche preview coming soon" : "Aperçu de Terre Blanche à venir",
+    },
+  ];
+
+  return `<div class="service-portfolio" aria-label="${english ? "Website examples" : "Exemples de sites internet"}">
+    ${projects.map((project, index) => `<a class="service-portfolio__card${index === 0 ? " service-portfolio__card--primary" : ""}" href="${project.href}" target="_blank" rel="noopener noreferrer">
+      <span class="service-portfolio__preview"><img src="${project.image}" alt="${project.alt}" loading="lazy"><span class="service-portfolio__arrow" aria-hidden="true">→</span></span>
+      <span class="service-portfolio__label">${project.title}</span>
+    </a>`).join("")}
+  </div>`;
+}
+
 function openServicePresentation(serviceKey, trigger) {
   const presentation = servicePresentations[serviceKey];
   const animationTemplate = document.querySelector(`#service-animation-${serviceKey}`);
@@ -323,7 +354,16 @@ function openServicePresentation(serviceKey, trigger) {
     servicePageLink.hidden = !presentation.page;
     if (presentation.page) servicePageLink.href = presentation.page;
   }
-  if (serviceVisual) serviceVisual.replaceChildren(animationTemplate.content.cloneNode(true));
+  if (serviceVisual) {
+    serviceVisual.classList.toggle("service-modal__visual--portfolio", serviceKey === "website");
+    if (serviceKey === "website") {
+      serviceVisual.removeAttribute("aria-hidden");
+      serviceVisual.innerHTML = createWebsitePortfolio();
+    } else {
+      serviceVisual.setAttribute("aria-hidden", "true");
+      serviceVisual.replaceChildren(animationTemplate.content.cloneNode(true));
+    }
+  }
   if (serviceSteps) {
     serviceSteps.replaceChildren(...presentation.steps.map(createServiceStep));
   }
@@ -340,6 +380,8 @@ function closeServicePresentation({ restoreFocus = true } = {}) {
   serviceModal.hidden = true;
   document.body.classList.remove("modal-open");
   serviceVisual?.replaceChildren();
+  serviceVisual?.classList.remove("service-modal__visual--portfolio");
+  serviceVisual?.setAttribute("aria-hidden", "true");
   if (restoreFocus) serviceModalTrigger?.focus();
 }
 
