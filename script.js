@@ -320,9 +320,9 @@ function createWebsitePortfolio() {
     },
     {
       href: "https://milleans.fr",
-      image: "assets/portfolio/apercu-a-venir.svg",
+      image: "assets/portfolio/milleans-apercu.png",
       title: "Milleans",
-      alt: english ? "Milleans preview coming soon" : "Aperçu de Milleans à venir",
+      alt: english ? "Preview of the Milleans website" : "Aperçu du site Milleans",
     },
     {
       href: "https://terreblanche.fr",
