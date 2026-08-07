@@ -16,6 +16,7 @@
   const isEnglish = document.documentElement.lang === "en";
   document.querySelectorAll("[data-cookie-manage]").forEach((button) => button.addEventListener("click", () => {
     window.localStorage.removeItem("pc32_google_map_consent");
+    window.localStorage.removeItem("pc32_analytics_consent");
     window.location.href = `${isEnglish ? "index-en.html" : "index.html"}#contact`;
   }));
   const labels = isEnglish

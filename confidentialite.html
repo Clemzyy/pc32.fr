@@ -16,6 +16,7 @@
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"BreadcrumbList","@id":"https://www.pc32.fr/confidentialite.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://www.pc32.fr/"},{"@type":"ListItem","position":2,"name":"Confidentialité et cookies","item":"https://www.pc32.fr/confidentialite.html"}]}
   </script>
+  <script src="analytics.js?v=20260727-1" defer></script>
 </head>
 <body class="legal-page">
   <a class="skip-link" href="#contenu">Aller au contenu</a>
@@ -128,12 +129,17 @@
 
         <section id="cookies">
           <span class="legal-section__number">05</span>
-          <h2>Cookies, stockage local et Google Maps</h2>
+          <h2>Cookies, stockage local, mesure d’audience et Google Maps</h2>
           <div class="legal-callout">
-            <strong>Pas de cookies publicitaires ni de mesure d’audience</strong>
-            <p>pc32.fr n’utilise actuellement aucun outil publicitaire, pixel social ou service d’analyse d’audience.</p>
+            <strong>Pas de cookies publicitaires</strong>
+            <p>pc32.fr n’utilise aucun outil publicitaire ni pixel social. La mesure d’audience et la carte Google Maps ne sont activées qu’avec votre accord préalable.</p>
           </div>
-          <p>La carte Google Maps est désactivée par défaut. Tant que vous ne cliquez pas sur « Autoriser la carte » ou « Afficher la carte Google », aucun contenu Google Maps n’est chargé par pc32.fr.</p>
+          <h3>Mesure d’audience</h3>
+          <p>Avec votre accord, pc32.fr utilise Google Analytics 4 pour comprendre comment le site est consulté : nombre de visiteurs, pages vues, origine des visites et actions de contact (appel téléphonique, envoi du formulaire). Cette mesure sert uniquement à améliorer le site et le suivi des demandes.</p>
+          <p>Aucun script Google n’est chargé tant que vous n’avez pas cliqué sur « Accepter ». Si vous refusez, ou tant que vous n’avez pas répondu, aucune donnée n’est transmise à Google et aucun cookie de mesure n’est déposé. Votre adresse IP est anonymisée. Ces traitements relèvent de Google Ireland Limited et sont décrits dans les <a href="https://policies.google.com/privacy?hl=fr" target="_blank" rel="noopener noreferrer">règles de confidentialité de Google</a>.</p>
+          <p>Votre choix est conservé six mois dans le stockage local de votre navigateur sous la clé <code>pc32_analytics_consent</code>.</p>
+          <h3>Carte Google Maps</h3>
+          <p>La carte Google Maps est désactivée par défaut. Tant que vous ne cliquez pas sur « Accepter » ou « Afficher la carte Google », aucun contenu Google Maps n’est chargé par pc32.fr.</p>
           <p>Le choix « accepté » ou « refusé » est mémorisé pendant six mois dans le stockage local de votre navigateur sous la clé <code>pc32_google_map_consent</code>. Ce stockage sert uniquement à conserver votre choix et ne permet pas à InforMagicien de suivre votre navigation.</p>
           <p>Si vous autorisez la carte, Google peut recevoir votre adresse IP, des informations sur votre navigateur et déposer ou lire ses propres traceurs. Ces traitements relèvent de Google Ireland Limited et sont décrits dans les <a href="https://policies.google.com/privacy?hl=fr" target="_blank" rel="noopener noreferrer">règles de confidentialité de Google</a>.</p>
           <p>Vous pouvez modifier votre choix à tout moment grâce au lien « Gérer les cookies » situé en bas de la page d’accueil. Le retrait empêche les prochains chargements de la carte. Les éventuels cookies déjà déposés par Google doivent être supprimés depuis les réglages de votre navigateur.</p>
@@ -190,5 +196,22 @@
       <path class="scroll-top__arrow" d="m16 25 6-7 6 7M22 18v11"/>
     </svg>
   </button>
+  <!-- Ce panneau couvre la mesure d'audience et le chargement de Google Maps. -->
+  <section class="cookie-panel" data-cookie-panel role="dialog" aria-labelledby="cookie-title" aria-describedby="cookie-description" hidden>
+    <div class="cookie-panel__copy">
+      <span class="cookie-panel__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M20 13.2A8.5 8.5 0 1 1 10.8 4a4.8 4.8 0 0 0 4.7 6 4.8 4.8 0 0 0 4.5 3.2Z"/><circle cx="8.5" cy="11" r=".8"/><circle cx="12" cy="16" r=".8"/><circle cx="7" cy="16.5" r=".8"/></svg>
+      </span>
+      <div>
+        <strong id="cookie-title">Votre choix pour les mesures et la carte</strong>
+        <p id="cookie-description">InforMagicien ne dépose aucun cookie publicitaire. Avec votre accord, nous mesurons la fréquentation du site de manière anonyme. Refuser n’enlève rien au reste du site, et vous pouvez changer d’avis à tout moment.</p>
+        <a href="confidentialite.html#cookies">Consulter la politique de confidentialité</a>
+      </div>
+    </div>
+    <div class="cookie-panel__actions">
+      <button type="button" data-cookie-reject>Refuser</button>
+      <button type="button" data-cookie-accept>Accepter</button>
+    </div>
+  </section>
 </body>
 </html>

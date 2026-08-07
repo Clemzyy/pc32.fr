@@ -597,6 +597,7 @@ if (contactForm) {
       contactForm.classList.remove("is-sending");
       contactForm.classList.add("is-sent");
       successPanel?.setAttribute("aria-hidden", "false");
+      window.pc32Track?.("demande_contact", { method: "formulaire" });
       contactForm.reset();
       resetStartedAt();
 
