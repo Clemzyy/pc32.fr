@@ -10,7 +10,7 @@
    Tant que la valeur d'exemple est en place, la mesure reste inactive.
 ------------------------------------------------------------------- */
 (() => {
-  const analyticsId = "G-XXXXXXXXXX";
+  const analyticsId = "G-W2NGWMG66W";
   const analyticsConfigured = /^G-[A-Z0-9]{6,}$/.test(analyticsId) && !analyticsId.includes("XXXX");
 
   const analyticsKey = "pc32_analytics_consent";
