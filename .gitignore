@@ -6,3 +6,6 @@ Thumbs.db
 capture/config.php
 capture/journal.log
 capture/courriers-essai.txt
+capture/LISEZMOI.md
+capture/schema.sql
+capture/tests/

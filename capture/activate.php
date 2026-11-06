@@ -2,6 +2,7 @@
 // Appelé par CapTure quand une personne colle sa clé : vérifie la clé et renvoie une preuve liée à son ordinateur.
 // Entrée : JSON {"code":"CAPT-XXXX-XXXX-XXXX","machine":"<16 signes hexadécimaux>"}.
 // Sortie : {"ok":true,"token":"…","holder":"…"} ou {"ok":false,"error":"invalid|unknown|revoked|limit|throttled|server"}.
+// Avec "action":"deactivate" en plus : libère la place de cet ordinateur, sortie {"ok":true,"released":true|false}.
 declare(strict_types=1);
 require __DIR__ . '/lib.php';
 
@@ -11,7 +12,8 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
 $input = json_decode(file_get_contents('php://input') ?: '', true);
 $code = strtoupper(trim((string) ($input['code'] ?? '')));
 $machine = strtolower(trim((string) ($input['machine'] ?? '')));
-if (!valid_code($code) || !valid_machine($machine)) {
+$action = (string) ($input['action'] ?? 'activate');
+if (!valid_code($code) || !valid_machine($machine) || !in_array($action, ['activate', 'deactivate'], true)) {
     reply(['ok' => false, 'error' => 'invalid']);
 }
 
@@ -32,6 +34,16 @@ try {
     if ($licence === null) {
         $pdo->prepare('INSERT INTO essais (ip, tried_at) VALUES (?, ?)')->execute([$ip, now()]);
         reply(['ok' => false, 'error' => 'unknown']);
+    }
+    // Désactivation demandée depuis CapTure : libère la place de CET ordinateur (jamais celle d'un autre).
+    // Sans effet si l'ordinateur n'était pas activé ; permise même pour une clé annulée.
+    if ($action === 'deactivate') {
+        $gone = $pdo->prepare('DELETE FROM activations WHERE licence_id = ? AND machine = ?');
+        $gone->execute([$licence['id'], $machine]);
+        if ($gone->rowCount() > 0) {
+            log_line('Clé #' . $licence['id'] . ' : un ordinateur désactivé, une place libérée');
+        }
+        reply(['ok' => true, 'released' => $gone->rowCount() > 0]);
     }
     if ($licence['revoked_at'] !== null) {
         reply(['ok' => false, 'error' => 'revoked']);
