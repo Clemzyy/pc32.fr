@@ -1,5 +1,5 @@
-Informagicien - logiciels de téléassistance pour Windows
-Vérification effectuée le 20 juillet 2026
+Informagicien - logiciels pour Windows (téléassistance et CapTure)
+Vérification effectuée le 20 juillet 2026 (CapTure : 6 novembre 2026)
 
 Les empreintes SHA-256 permettent de vérifier que les fichiers téléchargés
 n'ont pas été modifiés.
@@ -7,3 +7,4 @@ n'ont pas été modifiés.
 1A70F4EEF11FBECB721B9BAB1C9FF43A8C4CD7B2CAFEF08C033C77070C6FE069 *AnyDesk_portable.exe
 9BFE8FD211B5F4F7A6F7F446A9E0917D90D697B62AC3187F9B414B9BD6C8511B *TeamViewer_Host_Informagicien.exe
 78A52F4E2E97EBF96F725393A5E2A8F879CE4416749B2DFE3D21AC33CF1E0E8E *TeamViewer_QuickSupport_Informagicien.exe
+351A7403855F2A747992E1BE15820D813520CD65D70636B2C6E0A639028EE530 *CapTure-installateur.exe

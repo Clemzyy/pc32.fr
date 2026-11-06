@@ -113,35 +113,139 @@ function find_licence_by_txn(string $txn): ?array
     return $stmt->fetch() ?: null;
 }
 
+/** Adresses citées dans le courrier : la page du logiciel (avec son bouton de téléchargement) et le logo. */
+const MAIL_PAGE_URL = 'https://www.pc32.fr/capture/';
+const MAIL_DOWNLOAD_URL = 'https://www.pc32.fr/capture/#telecharger';
+const MAIL_LOGO_URL = 'https://www.pc32.fr/assets/capture-mail.png';
+
+function mail_greeting(string $holder): string
+{
+    return $holder !== '' ? "Bonjour $holder," : 'Bonjour,';
+}
+
+/** Version texte du courrier : lisible partout, et seule version affichée si la messagerie refuse le HTML. */
+function key_mail_text(string $holder, string $code, int $max): string
+{
+    return mail_greeting($holder) . "\r\n\r\n"
+        . "Merci pour votre soutien à CapTure !\r\n\r\n"
+        . "Votre clé d'activation :\r\n\r\n    $code\r\n\r\n"
+        . "Pour l'activer :\r\n"
+        . "1. Téléchargez et installez CapTure (gratuit, Windows 10 et 11) : " . MAIL_DOWNLOAD_URL . "\r\n"
+        . "   Windows peut afficher un avertissement car le programme n'est pas encore signé : la page explique quoi faire.\r\n"
+        . "2. Ouvrez CapTure, allez dans Réglages > Activation, collez la clé et cliquez sur « Activer ».\r\n"
+        . "   L'ordinateur doit être connecté à internet pendant l'activation.\r\n\r\n"
+        . "Cette clé fonctionne sur $max ordinateurs au plus. Pour changer d'ordinateur, cliquez sur « Désactiver cet ordinateur » dans Réglages > Activation. Conservez ce message.\r\n"
+        . "Un souci ? Répondez simplement à ce message.\r\n\r\n"
+        . "Clemzy\r\nInforMagicien · " . MAIL_PAGE_URL . "\r\n";
+}
+
+/** Version HTML : mise en page à tableaux et styles en ligne, la seule forme comprise par toutes les messageries. */
+function key_mail_html(string $holder, string $code, int $max): string
+{
+    $h = static fn (string $s): string => htmlspecialchars($s, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+    $hello = $h(mail_greeting($holder));
+    $key = $h($code);
+    $page = MAIL_PAGE_URL;
+    $download = MAIL_DOWNLOAD_URL;
+    $logo = MAIL_LOGO_URL;
+    $step = static fn (int $n, string $text): string =>
+        '<tr><td width="34" valign="top" style="padding:6px 0;"><span style="display:inline-block;width:24px;height:24px;line-height:24px;border-radius:12px;background:#e8f0fe;color:#1e66f5;font-weight:bold;font-size:13px;text-align:center;">' . $n . '</span></td>'
+        . '<td valign="top" style="padding:6px 0;font-size:15px;line-height:22px;color:#13233a;">' . $text . '</td></tr>';
+    $steps = $step(1, '<strong>Téléchargez et installez CapTure</strong> avec le bouton ci-dessus (gratuit, Windows 10 et 11).')
+        . $step(2, 'Ouvrez CapTure, puis <strong>Réglages › Activation</strong>.')
+        . $step(3, 'Collez la clé et cliquez sur <strong>Activer</strong>. L’ordinateur doit être connecté à internet.');
+    return <<<HTML
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Votre clé d’activation CapTure</title>
+</head>
+<body style="margin:0;padding:0;background:#f2f6f8;">
+<div style="display:none;max-height:0;overflow:hidden;opacity:0;color:#f2f6f8;">Votre clé d’activation CapTure est prête : voici comment l’utiliser.</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f2f6f8;">
+<tr><td align="center" style="padding:24px 12px;">
+<table role="presentation" width="600" cellpadding="0" cellspacing="0" style="width:100%;max-width:600px;background:#ffffff;border-radius:12px;border:1px solid #dfe7ec;font-family:Segoe UI,Helvetica,Arial,sans-serif;">
+<tr><td style="background:#102f50;border-radius:12px 12px 0 0;padding:20px 28px;">
+<table role="presentation" cellpadding="0" cellspacing="0"><tr>
+<td valign="middle"><img src="$logo" width="56" height="56" alt="CapTure" style="display:block;border:0;border-radius:10px;"></td>
+<td valign="middle" style="padding-left:14px;"><div style="font-size:22px;font-weight:bold;color:#ffffff;">CapTure</div><div style="font-size:13px;color:#79e6df;">L’enregistreur de réunions pour Windows</div></td>
+</tr></table>
+</td></tr>
+<tr><td style="padding:28px 28px 8px 28px;color:#13233a;">
+<p style="margin:0 0 12px 0;font-size:18px;font-weight:bold;">$hello</p>
+<p style="margin:0 0 20px 0;font-size:15px;line-height:23px;">Merci pour votre soutien à CapTure ! Voici votre clé d’activation.</p>
+<div style="background:#f2f6f8;border:2px solid #dfe7ec;border-radius:10px;padding:18px 12px;text-align:center;">
+<div style="font-size:12px;color:#5c6b7d;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;">Votre clé d’activation</div>
+<div style="font-family:Consolas,Menlo,'Courier New',monospace;font-size:24px;font-weight:bold;letter-spacing:2px;color:#102f50;">$key</div>
+</div>
+</td></tr>
+<tr><td align="center" style="padding:24px 28px 8px 28px;">
+<table role="presentation" cellpadding="0" cellspacing="0"><tr><td bgcolor="#1e66f5" style="background:#1e66f5;border-radius:8px;">
+<a href="$download" style="display:inline-block;padding:14px 30px;font-size:16px;font-weight:bold;color:#ffffff;text-decoration:none;">Télécharger CapTure</a>
+</td></tr></table>
+</td></tr>
+<tr><td style="padding:16px 28px 8px 28px;">
+<p style="margin:0 0 6px 0;font-size:15px;font-weight:bold;color:#13233a;">Pour l’activer</p>
+<table role="presentation" cellpadding="0" cellspacing="0" width="100%">$steps</table>
+</td></tr>
+<tr><td style="padding:12px 28px 24px 28px;">
+<p style="margin:0 0 10px 0;font-size:13px;line-height:20px;color:#5c6b7d;">Cette clé fonctionne sur $max ordinateurs au plus. Pour changer d’ordinateur, cliquez sur « Désactiver cet ordinateur » dans Réglages › Activation. Conservez ce message.</p>
+<p style="margin:0;font-size:13px;line-height:20px;color:#5c6b7d;">Windows peut afficher « Windows a protégé votre ordinateur » car le programme n’est pas encore signé : <a href="$download" style="color:#1e66f5;">la page de téléchargement</a> explique quoi faire.</p>
+</td></tr>
+<tr><td style="border-top:1px solid #dfe7ec;padding:18px 28px;font-size:13px;line-height:20px;color:#5c6b7d;">
+Un souci ? Répondez simplement à ce message.<br>
+Clemzy · <a href="$page" style="color:#1e66f5;">InforMagicien, pc32.fr</a>
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>
+HTML;
+}
+
+/**
+ * Courrier complet : objet, en-têtes et corps (texte + HTML, encodés en quoted-printable).
+ * @return array{subject: string, headers: list<string>, body: string}
+ */
+function key_mail_message(string $holder, string $code): array
+{
+    $c = cfg();
+    $max = (int) $c['max_machines'];
+    $boundary = '=_capture_' . bin2hex(random_bytes(12));
+    $part = static fn (string $type, string $content): string =>
+        "--$boundary\r\nContent-Type: $type; charset=UTF-8\r\nContent-Transfer-Encoding: quoted-printable\r\n\r\n"
+        . quoted_printable_encode($content) . "\r\n";
+    return [
+        'subject' => 'Votre clé d\'activation CapTure',
+        'headers' => [
+            'From: ' . mb_encode_mimeheader($c['mail_from_name'], 'UTF-8') . ' <' . $c['mail_from'] . '>',
+            'Reply-To: ' . $c['mail_from'],
+            'MIME-Version: 1.0',
+            "Content-Type: multipart/alternative; boundary=\"$boundary\"",
+        ],
+        'body' => $part('text/plain', key_mail_text($holder, $code, $max))
+            . $part('text/html', key_mail_html($holder, $code, $max))
+            . "--$boundary--\r\n",
+    ];
+}
+
 /** Envoie la clé au donateur. Renvoie vrai si le courrier est parti. */
 function send_key_mail(string $to, string $holder, string $code): bool
 {
     $c = cfg();
-    $max = (int) $c['max_machines'];
-    $subject = 'Votre clé d\'activation CapTure';
-    $body = "Bonjour $holder,\r\n\r\n"
-        . "Merci pour votre soutien à CapTure !\r\n\r\n"
-        . "Votre clé d'activation :\r\n\r\n    $code\r\n\r\n"
-        . "Pour l'activer : ouvrez CapTure, allez dans Réglages > Activation, collez la clé et cliquez sur « Activer ».\r\n"
-        . "L'ordinateur doit être connecté à internet pendant l'activation.\r\n\r\n"
-        . "Cette clé fonctionne sur $max ordinateurs au plus. Conservez ce message.\r\n"
-        . "Un souci, un changement d'ordinateur ? Répondez simplement à ce message.\r\n\r\n"
-        . "Clemzy\r\n";
     if (!filter_var($to, FILTER_VALIDATE_EMAIL) || preg_match('/[\r\n]/', $to)) {
         return false;
     }
+    $m = key_mail_message($holder, $code);
     if (($c['mail_transport'] ?? 'mail') === 'file') {
-        return file_put_contents($c['mail_file'], "À : $to\nObjet : $subject\n\n$body\n----\n", FILE_APPEND | LOCK_EX) !== false;
+        // Essais : le courrier est écrit en clair (corps décodé) pour pouvoir être relu.
+        $text = "À : $to\nObjet : {$m['subject']}\n" . implode("\n", $m['headers']) . "\n\n" . quoted_printable_decode($m['body']) . "\n----\n";
+        return file_put_contents($c['mail_file'], $text, FILE_APPEND | LOCK_EX) !== false;
     }
-    $from = $c['mail_from'];
-    $headers = [
-        'From: ' . mb_encode_mimeheader($c['mail_from_name'], 'UTF-8') . " <$from>",
-        'Reply-To: ' . $from,
-        'MIME-Version: 1.0',
-        'Content-Type: text/plain; charset=UTF-8',
-        'Content-Transfer-Encoding: 8bit',
-    ];
-    return mail($to, '=?UTF-8?B?' . base64_encode($subject) . '?=', $body, implode("\r\n", $headers));
+    return mail($to, '=?UTF-8?B?' . base64_encode($m['subject']) . '?=', $m['body'], implode("\r\n", $m['headers']));
 }
 
 function b64url(string $data): string
