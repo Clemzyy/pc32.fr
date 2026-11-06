@@ -6055,6 +6055,14 @@ h3 {
   padding: 32px;
 }
 
+.software-panel video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  background: var(--navy-950);
+}
+
 .software-panel h3 {
   margin: 0 0 6px;
   font-size: 1.25rem;
