@@ -8,6 +8,9 @@ LimitRequestBody 32768
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
+  # Le dossier .git (déploiement Git d'OVH) ne doit jamais être lisible depuis internet.
+  RewriteRule (^|/)\.git(/|$) - [R=404,L]
+
   # Une seule adresse publique : HTTPS avec www.
   RewriteCond %{HTTP_HOST} ^(?:www\.)?pc32\.fr$ [NC]
   RewriteCond %{HTTPS} !=on [OR]
