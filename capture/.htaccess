@@ -1,0 +1,12 @@
+# Seuls ipn.php, activate.php et la page index.html doivent être joignables depuis internet.
+<FilesMatch "^(config.*\.php|lib\.php|journal\.log|courriers-essai\.txt|schema\.sql|LISEZMOI\.md|\.htaccess)$">
+    Require all denied
+</FilesMatch>
+Options -Indexes
+
+# Le .htaccess du site pc32.fr refuse toute requête POST sauf celle du formulaire de contact, et redirige tout vers
+# « www ». ipn.php (PayPal) et activate.php (CapTure) reçoivent des POST : dans ce dossier, on coupe ces règles.
+# Les adresses à utiliser sont donc toujours en https://www.pc32.fr/capture/…
+<IfModule mod_rewrite.c>
+    RewriteEngine Off
+</IfModule>
