@@ -57,8 +57,10 @@ try {
     } else {
         $used = $pdo->prepare('SELECT COUNT(*) FROM activations WHERE licence_id = ?');
         $used->execute([$licence['id']]);
-        if ((int) $used->fetchColumn() >= (int) $c['max_machines']) {
-            log_line('Clé #' . $licence['id'] . ' : refus, ' . $c['max_machines'] . ' ordinateurs déjà activés');
+        // Limite propre à la clé (colonne facultative max_machines), sinon celle de config.php.
+        $limit = (int) ($licence['max_machines'] ?? $c['max_machines']);
+        if ((int) $used->fetchColumn() >= $limit) {
+            log_line('Clé #' . $licence['id'] . ' : refus, ' . $limit . ' ordinateur(s) déjà activé(s)');
             reply(['ok' => false, 'error' => 'limit']);
         }
         $pdo->prepare('INSERT INTO activations (licence_id, machine, first_seen, last_seen) VALUES (?, ?, ?, ?)')
