@@ -1,8 +1,8 @@
 {
-  "version": "0.7.0",
+  "version": "0.7.1",
   "url": "https://www.pc32.fr/assets/CapTure-installateur.exe",
-  "sha256": "81df0acc66cc47d15ac5edd4b668f762e6d0a329e5159364d9594238feef3af4",
-  "size": 6985439,
-  "notes": "Jauges de niveau sonore en direct\nMise à jour automatique : une icône vous prévient, un clic installe la nouvelle version",
-  "signature": "ebuSLl4ojQ9oTv5wZFrPGzRWWIwWvMfEKCsQ_9G41YPcqng_aheCfUModiamNdpJKN6UqaDlhTxYOykhHH1qCw"
+  "sha256": "e78dec257eeb0fe75c7f1bc5b745452da6f0facecb6c27c82eee79521c0ea346",
+  "size": 6991054,
+  "notes": "Correctif : les fichiers MKV d'OBS à plusieurs pistes sont maintenant transcrits",
+  "signature": "1d9BeRwjFO7spY9WX9s4auRyMxFVevcOAf0meb8PMvdg9mQdd6PE-J9ujhXdBLPJv7ITJBesWRFueTzDN_KDAg"
 }
