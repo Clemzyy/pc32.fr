@@ -6063,6 +6063,11 @@ h3 {
   background: var(--navy-950);
 }
 
+#presentation .software-panel {
+  max-width: 640px;
+  margin-inline: auto;
+}
+
 .software-panel h3 {
   margin: 0 0 6px;
   font-size: 1.25rem;
