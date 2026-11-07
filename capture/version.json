@@ -1,8 +1,8 @@
 {
-  "version": "0.7.1",
+  "version": "0.8.0",
   "url": "https://www.pc32.fr/assets/CapTure-installateur.exe",
-  "sha256": "e78dec257eeb0fe75c7f1bc5b745452da6f0facecb6c27c82eee79521c0ea346",
-  "size": 6991054,
-  "notes": "Correctif : les fichiers MKV d'OBS à plusieurs pistes sont maintenant transcrits",
-  "signature": "1d9BeRwjFO7spY9WX9s4auRyMxFVevcOAf0meb8PMvdg9mQdd6PE-J9ujhXdBLPJv7ITJBesWRFueTzDN_KDAg"
+  "sha256": "a4b649cab7c96bc99f3d4e07c1b474073e04796274dc7ac48956102d3067a1f8",
+  "size": 7001130,
+  "notes": "Nouveau raccourci pour noter l'arrivée d'un nouvel intervenant (lives, webinaires)\nFichier de repères (.csv) pour préparer le montage\nTranscription des longs fichiers découpée en parties : reprise possible si elle est interrompue",
+  "signature": "8IeY-Nwr1IzLiTkH2Pec20W92Hx8YjjUZQEXbg8n4ovLTJfEG0UC1xs-VRhJMuQk1dWhD5aajppbOQSDpcthBw"
 }
