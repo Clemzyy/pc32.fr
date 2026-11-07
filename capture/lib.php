@@ -118,6 +118,12 @@ const MAIL_PAGE_URL = 'https://www.pc32.fr/capture/';
 const MAIL_DOWNLOAD_URL = 'https://www.pc32.fr/capture/#telecharger';
 const MAIL_LOGO_URL = 'https://www.pc32.fr/assets/capture-mail.png';
 
+/** « 1 seul ordinateur » ou « 2 ordinateurs au plus », pour l'e-mail de la clé. */
+function computers_phrase(int $max): string
+{
+    return $max === 1 ? '1 seul ordinateur' : "$max ordinateurs au plus";
+}
+
 function mail_greeting(string $holder): string
 {
     return $holder !== '' ? "Bonjour $holder," : 'Bonjour,';
@@ -134,7 +140,7 @@ function key_mail_text(string $holder, string $code, int $max): string
         . "   Windows peut afficher un avertissement car le programme n'est pas encore signé : la page explique quoi faire.\r\n"
         . "2. Ouvrez CapTure, allez dans Réglages > Activation, collez la clé et cliquez sur « Activer ».\r\n"
         . "   L'ordinateur doit être connecté à internet pendant l'activation.\r\n\r\n"
-        . "Cette clé fonctionne sur $max ordinateurs au plus. Pour changer d'ordinateur, cliquez sur « Désactiver cet ordinateur » dans Réglages > Activation. Conservez ce message.\r\n"
+        . 'Cette clé fonctionne sur ' . computers_phrase($max) . ". Pour changer d'ordinateur, cliquez sur « Désactiver cet ordinateur » dans Réglages > Activation. Conservez ce message.\r\n"
         . "Un souci ? Répondez simplement à ce message.\r\n\r\n"
         . "Clemzy\r\nInforMagicien · " . MAIL_PAGE_URL . "\r\n";
 }
@@ -144,6 +150,7 @@ function key_mail_html(string $holder, string $code, int $max): string
 {
     $h = static fn (string $s): string => htmlspecialchars($s, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
     $hello = $h(mail_greeting($holder));
+    $computers = computers_phrase($max);
     $key = $h($code);
     $page = MAIL_PAGE_URL;
     $download = MAIL_DOWNLOAD_URL;
@@ -191,7 +198,7 @@ function key_mail_html(string $holder, string $code, int $max): string
 <table role="presentation" cellpadding="0" cellspacing="0" width="100%">$steps</table>
 </td></tr>
 <tr><td style="padding:12px 28px 24px 28px;">
-<p style="margin:0 0 10px 0;font-size:13px;line-height:20px;color:#5c6b7d;">Cette clé fonctionne sur $max ordinateurs au plus. Pour changer d’ordinateur, cliquez sur « Désactiver cet ordinateur » dans Réglages › Activation. Conservez ce message.</p>
+<p style="margin:0 0 10px 0;font-size:13px;line-height:20px;color:#5c6b7d;">Cette clé fonctionne sur $computers. Pour changer d’ordinateur, cliquez sur « Désactiver cet ordinateur » dans Réglages › Activation. Conservez ce message.</p>
 <p style="margin:0;font-size:13px;line-height:20px;color:#5c6b7d;">Windows peut afficher « Windows a protégé votre ordinateur » car le programme n’est pas encore signé : <a href="$download" style="color:#1e66f5;">la page de téléchargement</a> explique quoi faire.</p>
 </td></tr>
 <tr><td style="border-top:1px solid #dfe7ec;padding:18px 28px;font-size:13px;line-height:20px;color:#5c6b7d;">
@@ -210,10 +217,10 @@ HTML;
  * Courrier complet : objet, en-têtes et corps (texte + HTML, encodés en quoted-printable).
  * @return array{subject: string, headers: list<string>, body: string}
  */
-function key_mail_message(string $holder, string $code): array
+function key_mail_message(string $holder, string $code, ?int $maxMachines = null): array
 {
     $c = cfg();
-    $max = (int) $c['max_machines'];
+    $max = $maxMachines ?? (int) $c['max_machines'];
     $boundary = '=_capture_' . bin2hex(random_bytes(12));
     $part = static fn (string $type, string $content): string =>
         "--$boundary\r\nContent-Type: $type; charset=UTF-8\r\nContent-Transfer-Encoding: quoted-printable\r\n\r\n"
@@ -233,13 +240,13 @@ function key_mail_message(string $holder, string $code): array
 }
 
 /** Envoie la clé au donateur. Renvoie vrai si le courrier est parti. */
-function send_key_mail(string $to, string $holder, string $code): bool
+function send_key_mail(string $to, string $holder, string $code, ?int $maxMachines = null): bool
 {
     $c = cfg();
     if (!filter_var($to, FILTER_VALIDATE_EMAIL) || preg_match('/[\r\n]/', $to)) {
         return false;
     }
-    $m = key_mail_message($holder, $code);
+    $m = key_mail_message($holder, $code, $maxMachines);
     if (($c['mail_transport'] ?? 'mail') === 'file') {
         // Essais : le courrier est écrit en clair (corps décodé) pour pouvoir être relu.
         $text = "À : $to\nObjet : {$m['subject']}\n" . implode("\n", $m['headers']) . "\n\n" . quoted_printable_decode($m['body']) . "\n----\n";
