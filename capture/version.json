@@ -1,8 +1,8 @@
 {
-  "version": "0.8.0",
+  "version": "0.8.1",
   "url": "https://www.pc32.fr/assets/CapTure-installateur.exe",
-  "sha256": "a4b649cab7c96bc99f3d4e07c1b474073e04796274dc7ac48956102d3067a1f8",
-  "size": 7001130,
-  "notes": "Nouveau raccourci pour noter l'arrivée d'un nouvel intervenant (lives, webinaires)\nFichier de repères (.csv) pour préparer le montage\nTranscription des longs fichiers découpée en parties : reprise possible si elle est interrompue",
-  "signature": "8IeY-Nwr1IzLiTkH2Pec20W92Hx8YjjUZQEXbg8n4ovLTJfEG0UC1xs-VRhJMuQk1dWhD5aajppbOQSDpcthBw"
+  "sha256": "ff38e535bf382dea622b9c81f22c34fb993e1cec8c4563f0fc3ffe0da3bc9316",
+  "size": 7002515,
+  "notes": "Nouveau bouton « Rechercher une mise à jour » dans Réglages › À propos",
+  "signature": "oQBuRA-XCa5044iELB4q5xflEsPousEb6JdzP70dLpu52I5GK-ET-3n7M0NfMAgmCqqUSbiWJ6VBsuaqKl3qBg"
 }
